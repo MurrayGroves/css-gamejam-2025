@@ -8,6 +8,8 @@ public class PlayerLevelManager : MonoBehaviour
     [SerializeField] private GameObject deathCollider;
     [SerializeField] private TMP_Text distanceDisplay;
 
+    private bool _dead;
+
     private float _distanceTravelled;
 
     public void Start()
@@ -33,8 +35,16 @@ public class PlayerLevelManager : MonoBehaviour
         deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
     }
 
-    public void PlayerDeath(Vector2 respawnPos)
+    private void Respawn()
     {
-        movementController.Teleport(respawnPos);
+        _dead = false;
+        movementController.Respawn();
+    }
+
+    public void PlayerDeath()
+    {
+        _dead = true;
+        movementController.Death();
+        Invoke(nameof(Respawn), 3.0f);
     }
 }

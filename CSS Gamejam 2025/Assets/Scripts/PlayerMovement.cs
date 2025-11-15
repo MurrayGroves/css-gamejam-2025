@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Respawn"))
         {
             Debug.Log("Collided with death collider");
-            _levelManager.PlayerDeath(_lastGroundedPos);
+            _levelManager.PlayerDeath();
         }
     }
 
@@ -113,5 +113,16 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.transform.position = pos;
         _rb.linearVelocity = Vector2.zero;
+    }
+
+    public void Respawn()
+    {
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    public void Death()
+    {
+        _rb.bodyType = RigidbodyType2D.Static;
+        Teleport(_lastGroundedPos);
     }
 }

@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
 
     private bool _isGrounded = true;
+    private bool _isJumping;
     private bool _isLanding;
     private Rigidbody2D _rb;
 
@@ -34,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Check if touching ground
         var ray = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, LayerMask.GetMask("Platform"));
-        if (ray.collider)
+        if (ray.collider && !_isJumping)
         {
             _isGrounded = true;
             _isLanding = false;
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 _animator.SetTrigger(Landing);
                 _isLanding = true;
+                _isJumping = false;
             }
         }
 
@@ -64,20 +66,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        var v = value.Get<Vector2>();
+        var v = value.Get<Vector2>().normalized;
 
         _animator.SetBool(Move, v.x != 0);
 
         if (v.x != 0) _spriteRenderer.flipX = v.x < 0;
 
         _targetVel = new Vector2(horizontalSpeed * v.x, 0);
+    }
 
+    public void OnJump(InputValue value)
+    {
         // Jump
-        if (v.y > 0 && _isGrounded)
-        {
-            _animator.SetTrigger(Jump);
-            _rb.AddForceY(jumpForce);
-            _isGrounded = false;
-        }
+        if (!_isGrounded || _isJumping) return;
+        _animator.SetTrigger(Jump);
+        _rb.AddForceY(jumpForce);
+        _isGrounded = false;
+        _isJumping = true;
     }
 }

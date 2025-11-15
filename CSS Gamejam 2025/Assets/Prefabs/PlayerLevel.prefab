@@ -505,9 +505,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c919bd337948f9a9808b4f1c711d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLevelManager
+  gameManager: {fileID: 0}
   movementController: {fileID: 5919985433127279934}
   deathCollider: {fileID: 7150740025750078530}
   distanceDisplay: {fileID: 1488168042467097763}
+  powerUpPrefabs:
+  - {fileID: 1689235630442431510, guid: df9058da32f9daf43a4a6d9c58f01086, type: 3}
 --- !u!1 &6418018786589596586
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +919,10 @@ PrefabInstance:
     - target: {fileID: 3609801141949144428, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
+      propertyPath: dashSpeed
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6483407248744903304, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: m_Actions

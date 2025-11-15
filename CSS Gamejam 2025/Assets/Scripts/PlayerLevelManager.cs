@@ -1,9 +1,13 @@
 using System;
 using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
+using PowerUps;
 
 public class PlayerLevelManager : MonoBehaviour
 {
+    [HideInInspector] public GameManager gameManager;
+    
     [SerializeField] private PlayerMovement movementController;
     [SerializeField] private GameObject deathCollider;
     [SerializeField] private TMP_Text distanceDisplay;
@@ -11,7 +15,8 @@ public class PlayerLevelManager : MonoBehaviour
     private bool _dead;
 
     private float _distanceTravelled;
-
+    [SerializeField] private List<GameObject> powerUpPrefabs;
+    
     public void Start()
     {
         var grid = GameObject.Find("Grid");
@@ -20,7 +25,10 @@ public class PlayerLevelManager : MonoBehaviour
         pos.y = -100.0f * grid.transform.childCount;
         gameObject.transform.position = pos;
 
+        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager.RegisterPlayerLevelManager(this);
         movementController.SetLevelManager(this);
+        SpawnPowerUps();
     }
 
     private void FixedUpdate()
@@ -46,5 +54,27 @@ public class PlayerLevelManager : MonoBehaviour
         _dead = true;
         movementController.Death();
         Invoke(nameof(Respawn), 3.0f);
+    }
+
+    public void IncreaseSpeed(int speed)
+    {
+        movementController.AddSpeed(speed);
+        Debug.Log("Added speed");
+    }
+
+    public void ReduceSpeed(int speed)
+    {
+        movementController.AddSpeed(1.0f/speed);
+        Debug.Log("Reduced speed");
+    }
+
+    private void SpawnPowerUps()
+    {
+        powerUpPrefabs.ForEach(powerUp =>
+        {
+            powerUp.GetComponent<PowerUp>().SetLevelManager(this);
+            Instantiate(powerUp, new Vector3(0, -198), Quaternion.identity);
+        });
+        Debug.Log("Spawned power ups");
     }
 }

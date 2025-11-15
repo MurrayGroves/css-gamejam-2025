@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int Move = Animator.StringToHash("Move");
     private static readonly int Jump = Animator.StringToHash("Jump");
     private static readonly int Landing = Animator.StringToHash("Landing");
+    private static readonly int Dash = Animator.StringToHash("Dash");
+    private static readonly int Property = Animator.StringToHash("In Air");
     [SerializeField] private float maxVel = 25.0f;
     [SerializeField] private float horizontalSpeed = 100.0f;
     [SerializeField] private float jumpForce = 100.0f;
@@ -13,11 +15,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float easeOut = 0.6f;
     [SerializeField] private float groundDistance = 0.1f;
     [SerializeField] private float landingThreshold = 2.0f;
+
+    [SerializeField] private float dashSpeed = 100.0f;
+    [SerializeField] private float dashRechargeSeconds = 1.0f;
     private Animator _animator;
+    private float _originalMaxVelocity;
+
+    private int _direction = 1;
+
+    private bool _inputHeld;
 
     private bool _isGrounded = true;
     private bool _isJumping;
     private bool _isLanding;
+
+    private float _lastDash;
 
     private Vector2 _lastGroundedPos;
     private PlayerLevelManager _levelManager;
@@ -41,12 +53,25 @@ public class PlayerMovement : MonoBehaviour
         if (ray.collider && !_isJumping)
         {
             _isGrounded = true;
+            _animator.SetBool(Property, false);
             _isLanding = false;
             _lastGroundedPos = _rb.transform.position;
         }
         else
         {
             _isGrounded = false;
+            _animator.SetBool(Property, true);
+        }
+
+        if (_inputHeld)
+        {
+            if ((_direction == -1 && _rb.linearVelocity.x > -maxVel) ||
+                (_direction == 1 && _rb.linearVelocity.x < maxVel))
+                _rb.AddForceX(horizontalSpeed * _direction);
+        }
+        else
+        {
+            _rb.AddForceX(-_rb.linearVelocity.x * easeOut);
         }
 
         // Check for landing animation
@@ -61,11 +86,6 @@ public class PlayerMovement : MonoBehaviour
                 _isJumping = false;
             }
         }
-
-        var lerpSpeed = _targetVel.x == 0.0 ? easeOut : easeIn;
-        var vel = Vector2.Lerp(_rb.linearVelocity, _targetVel, lerpSpeed);
-        vel.y = _rb.linearVelocity.y;
-        _rb.linearVelocity = vel;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -94,9 +114,24 @@ public class PlayerMovement : MonoBehaviour
 
         _animator.SetBool(Move, v.x != 0);
 
-        if (v.x != 0) _spriteRenderer.flipX = v.x < 0;
-
-        _targetVel = new Vector2(horizontalSpeed * v.x, 0);
+        if (v.x != 0)
+        {
+            _inputHeld = true;
+            if (v.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+                _direction = -1;
+            }
+            else
+            {
+                _spriteRenderer.flipX = false;
+                _direction = 1;
+            }
+        }
+        else
+        {
+            _inputHeld = false;
+        }
     }
 
     public void OnJump(InputValue value)
@@ -115,6 +150,18 @@ public class PlayerMovement : MonoBehaviour
         _rb.linearVelocity = Vector2.zero;
     }
 
+    public void AddSpeed(float speed)
+    {
+        _originalMaxVelocity = maxVel;
+        maxVel *= speed;
+        Invoke(nameof(ResetSpeed), 5);
+    }
+
+    private void ResetSpeed()
+    {
+        maxVel = _originalMaxVelocity;
+    }
+
     public void Respawn()
     {
         _rb.bodyType = RigidbodyType2D.Dynamic;
@@ -124,5 +171,13 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.bodyType = RigidbodyType2D.Static;
         Teleport(_lastGroundedPos);
+    }
+
+    public void OnDash(InputValue value)
+    {
+        if (!(Time.time - _lastDash > dashRechargeSeconds)) return;
+        _lastDash = Time.time;
+        _rb.AddForceX(dashSpeed * _direction);
+        _animator.SetTrigger(Dash);
     }
 }

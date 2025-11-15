@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 593140353673989230}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -91,7 +91,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -101,7 +101,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -111,7 +111,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -131,7 +131,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -161,7 +161,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -172,18 +172,18 @@ Tilemap:
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 5ab55a1cfc45e4bd2b68312d244ada54, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 2
-    m_Data: {fileID: -287988039, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1101491899, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1572207683, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 13508071, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1051335293, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
-  - m_RefCount: 1
     m_Data: {fileID: 5701613936549915964, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
+  - m_RefCount: 2
+    m_Data: {fileID: -287988039, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1101491899, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
+    m_Data: {fileID: 1051335293, guid: 825298031fe9b4d7d93bcf01acbb9e55, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 8
     m_Data:
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8629873019298594431}
   m_Layer: 0
-  m_Name: PrefabPlatform1
+  m_Name: PrefabPlatform1_Air
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

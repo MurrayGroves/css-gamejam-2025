@@ -1,8 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
+using PowerUps;
 
 public class PlayerLevelManager : MonoBehaviour
 {
+    public GameManager gameManager;
     [SerializeField] private PlayerMovement movementController;
+    [SerializeField] private List<PowerUp> powerUps;
 
     public void Start()
     {
@@ -13,10 +17,22 @@ public class PlayerLevelManager : MonoBehaviour
         gameObject.transform.position = pos;
 
         movementController.SetLevelManager(this);
+        powerUps.ForEach(powerUp => powerUp.SetLevelManager(this));
+        gameManager.RegisterPlayerLevelManager(this);
     }
 
     public void PlayerDeath(Vector2 respawnPos)
     {
         movementController.Teleport(respawnPos);
+    }
+
+    public void AddSpeed(int speed)
+    {
+        movementController.AddSpeed(speed);
+    }
+
+    public void ReduceSpeed(int speed)
+    {
+        movementController.AddSpeed(-speed);
     }
 }

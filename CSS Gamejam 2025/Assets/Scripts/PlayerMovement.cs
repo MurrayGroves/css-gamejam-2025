@@ -109,4 +109,9 @@ public class PlayerMovement : MonoBehaviour
         _rb.transform.position = pos;
         _rb.linearVelocity = Vector2.zero;
     }
+
+    public void AddSpeed(int speed)
+    {
+        _rb.linearVelocity += new Vector2(speed, speed);
+    }
 }

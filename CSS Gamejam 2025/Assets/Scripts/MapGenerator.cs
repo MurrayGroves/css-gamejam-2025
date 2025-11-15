@@ -1,20 +1,18 @@
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-public class ChunkCompatibility : MonoBehaviour
-{
-    public Tilemap[] possibleRight;
-}
-
 public class MapGenerator : MonoBehaviour
 {
     public Tilemap[] chunkPrefabs;
-    public Dictionary<Tilemap, ChunkCompatibility> Compatibilities;
+    public SerializedDictionary<int, int[]> compatibilities = new();
     public Grid grid;
+    
+    private readonly Camera _camera;
     private readonly List<Tilemap> _spawnedChunks = new();
-    private Camera _camera;
+    private readonly List<int> _spawnedChunkIndices = new();
     private static int count = 0;
 
     private void Update()
@@ -26,7 +24,20 @@ public class MapGenerator : MonoBehaviour
     private void Generate()
     {
         if (count > 10) return;
-        Tilemap newChunk = Instantiate(chunkPrefabs[0]);
+        Tilemap newChunk;
+        
+        if (_spawnedChunks.Count > 0)
+        {
+            var chunkIndex = GetCompatibleChunk();
+            newChunk = Instantiate(chunkPrefabs[chunkIndex]);
+            _spawnedChunkIndices.Add(chunkIndex);
+        }
+        else
+        {
+            newChunk = Instantiate(chunkPrefabs[0]);
+            _spawnedChunkIndices.Add(0);
+        }
+        
         newChunk.CompressBounds();
         
         if (_spawnedChunks.Count > 0)
@@ -41,15 +52,15 @@ public class MapGenerator : MonoBehaviour
         count++;
     }
 
-    private void PickCompatible()
+    private int GetCompatibleChunk()
     {
-        ChunkCompatibility possibleNext = Compatibilities[_spawnedChunks[^1]];
-        int indexOfNextChunk = Random.Range(0, possibleNext.possibleRight.Length);
-        Tilemap next = possibleNext.possibleRight[indexOfNextChunk];
-        _spawnedChunks.Add(next);
+        int[] possibleNext = compatibilities[_spawnedChunkIndices[^1]];
+        int indexOfNextChunk = Random.Range(0, possibleNext.Length);
+        int next = possibleNext[indexOfNextChunk];
+        return next;
     }
 
-    private void ClearOutOfView ()
+    private void ClearOutOfView()
     {
         foreach (var chunk in _spawnedChunks)
         {

@@ -78,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public float GetXPos()
+    {
+        return _rb.transform.position.x;
+    }
+
     public void SetLevelManager(PlayerLevelManager levelManager)
     {
         _levelManager = levelManager;

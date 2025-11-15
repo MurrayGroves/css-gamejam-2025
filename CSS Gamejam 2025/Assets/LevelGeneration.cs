@@ -50,16 +50,22 @@ public class LevelGeneration : MonoBehaviour
             }
 
 
+            Debug.Log($"${prefabToSpawn.name}: ${prefabTilemap.cellBounds}");
             prefabTilemap.CompressBounds();
             var prefabBounds = prefabTilemap.cellBounds;
+            Debug.Log($"${prefabToSpawn.name}: ${prefabTilemap.cellBounds}");
 
             // get tiles inside prefab tilemap
             TileBase[] prefabTiles = prefabTilemap.GetTilesBlock(prefabBounds);
 
 
             var destPosition = new Vector3Int(nextAvailableCellX - prefabBounds.xMin, prefabBounds.yMin,
-                prefabBounds.zMin);
+                prefabBounds.zMin) + Vector3Int.FloorToInt(prefabTilemap.transform.position);
+
+
             var destBounds = new BoundsInt(destPosition, prefabBounds.size);
+            Debug.LogFormat(
+                $"Placing ${prefabToSpawn.name} at  {destBounds.xMin}, {destBounds.yMin}, {destBounds.zMin}");
 
 
             targetTilemap.SetTilesBlock(destBounds, prefabTiles);

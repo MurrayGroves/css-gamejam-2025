@@ -6,9 +6,10 @@ using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
+    [Min(1)] public int maxChunks;
+    public Grid grid;
     public Tilemap[] chunkPrefabs;
     public SerializedDictionary<int, int[]> compatibilities = new();
-    public Grid grid;
     
     private readonly Camera _camera;
     private readonly List<Tilemap> _spawnedChunks = new();
@@ -23,7 +24,7 @@ public class MapGenerator : MonoBehaviour
 
     private void Generate()
     {
-        if (count > 10) return;
+        if (count > maxChunks) return;
         Tilemap newChunk;
         
         if (_spawnedChunks.Count > 0)

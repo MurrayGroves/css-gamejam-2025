@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = true;
     private bool _isJumping;
     private bool _isLanding;
+
+    private Vector2 _lastGroundedPos;
+    private PlayerLevelManager _levelManager;
     private Rigidbody2D _rb;
 
     private SpriteRenderer _spriteRenderer;
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _isGrounded = true;
             _isLanding = false;
+            _lastGroundedPos = _rb.transform.position;
         }
         else
         {
@@ -64,6 +68,21 @@ public class PlayerMovement : MonoBehaviour
         _rb.linearVelocity = vel;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Trigger enter");
+        if (other.gameObject.CompareTag("Respawn"))
+        {
+            Debug.Log("Collided with death collider");
+            _levelManager.PlayerDeath(_lastGroundedPos);
+        }
+    }
+
+    public void SetLevelManager(PlayerLevelManager levelManager)
+    {
+        _levelManager = levelManager;
+    }
+
     public void OnMove(InputValue value)
     {
         var v = value.Get<Vector2>().normalized;
@@ -83,5 +102,11 @@ public class PlayerMovement : MonoBehaviour
         _rb.AddForceY(jumpForce);
         _isGrounded = false;
         _isJumping = true;
+    }
+
+    public void Teleport(Vector2 pos)
+    {
+        _rb.transform.position = pos;
+        _rb.linearVelocity = Vector2.zero;
     }
 }

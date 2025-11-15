@@ -56,7 +56,7 @@ public class PlayerLevelManager : MonoBehaviour
         Invoke(nameof(Respawn), 3.0f);
     }
 
-    public void AddSpeed(int speed)
+    public void IncreaseSpeed(int speed)
     {
         movementController.AddSpeed(speed);
         Debug.Log("Added speed");
@@ -64,7 +64,7 @@ public class PlayerLevelManager : MonoBehaviour
 
     public void ReduceSpeed(int speed)
     {
-        movementController.AddSpeed(-speed);
+        movementController.AddSpeed(1.0f/speed);
         Debug.Log("Reduced speed");
     }
 

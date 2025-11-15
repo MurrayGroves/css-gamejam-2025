@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed = 100.0f;
     [SerializeField] private float dashRechargeSeconds = 1.0f;
     private Animator _animator;
-    private float originalMaxVelocity;
+    private float _originalMaxVelocity;
 
     private int _direction = 1;
 
@@ -150,16 +150,16 @@ public class PlayerMovement : MonoBehaviour
         _rb.linearVelocity = Vector2.zero;
     }
 
-    public void AddSpeed(int speed)
+    public void AddSpeed(float speed)
     {
-        originalMaxVelocity = maxVel;
+        _originalMaxVelocity = maxVel;
         maxVel *= speed;
         Invoke(nameof(ResetSpeed), 5);
     }
 
     private void ResetSpeed()
     {
-        maxVel = originalMaxVelocity;
+        maxVel = _originalMaxVelocity;
     }
 
     public void Respawn()

@@ -242,13 +242,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c382da183487485ab7c438372e6e32dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  maxVel: 1
-  horizontalSpeed: 5
-  jumpForce: 300
+  maxVel: 9
+  horizontalSpeed: 90
+  jumpForce: 500
   easeIn: 0.3
-  easeOut: 2.02
+  easeOut: 5
   groundDistance: 0.5
   landingThreshold: 2
+  dashSpeed: 10
+  dashRechargeSeconds: 1
 --- !u!95 &7893008482728449836
 Animator:
   serializedVersion: 7

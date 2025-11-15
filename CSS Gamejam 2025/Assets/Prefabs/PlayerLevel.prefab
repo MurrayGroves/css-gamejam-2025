@@ -465,7 +465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c919bd337948f9a9808b4f1c711d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLevelManager
+  gameManager: {fileID: 0}
   movementController: {fileID: 5919985433127279934}
+  powerUpPrefabs:
+  - {fileID: 1689235630442431510, guid: df9058da32f9daf43a4a6d9c58f01086, type: 3}
 --- !u!1 &6659224683994771232
 GameObject:
   m_ObjectHideFlags: 0

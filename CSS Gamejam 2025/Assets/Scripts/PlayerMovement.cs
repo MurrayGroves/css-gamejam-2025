@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDistance = 0.1f;
     [SerializeField] private float landingThreshold = 2.0f;
     private Animator _animator;
+    private float originalMaxVelocity;
 
     private bool _isGrounded = true;
     private bool _isJumping;
@@ -112,6 +113,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddSpeed(int speed)
     {
-        _rb.linearVelocity += new Vector2(speed, speed);
+        originalMaxVelocity = maxVel;
+        maxVel *= speed;
+        Invoke(nameof(ResetSpeed), 5);
+    }
+
+    private void ResetSpeed()
+    {
+        maxVel = originalMaxVelocity;
     }
 }

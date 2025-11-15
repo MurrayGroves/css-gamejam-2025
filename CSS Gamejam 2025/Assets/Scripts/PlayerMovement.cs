@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetTrigger(Jump);
             _rb.AddForceY(jumpForce);
+            _isGrounded = false;
         }
     }
 }

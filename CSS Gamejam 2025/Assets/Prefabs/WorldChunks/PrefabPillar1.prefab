@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 9030025368128445340}
   - component: {fileID: 4162563680635056510}
   - component: {fileID: 8562655616791039895}
+  - component: {fileID: 4351249369219248092}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -292,6 +293,24 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &4351249369219248092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959591360473297943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f389f3f087a242c1b55b87e95182a073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkMetadata
+  leftPoints:
+  - y: 4
+    clearance: 16
+  rightPoints:
+  - y: 4
+    clearance: 16
 --- !u!1 &3048279248510361918
 GameObject:
   m_ObjectHideFlags: 0

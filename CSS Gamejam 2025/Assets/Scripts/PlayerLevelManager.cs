@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
 using PowerUps;
@@ -7,6 +9,12 @@ public class PlayerLevelManager : MonoBehaviour
     [HideInInspector] public GameManager gameManager;
     
     [SerializeField] private PlayerMovement movementController;
+    [SerializeField] private GameObject deathCollider;
+    [SerializeField] private TMP_Text distanceDisplay;
+
+    private bool _dead;
+
+    private float _distanceTravelled;
     [SerializeField] private List<GameObject> powerUpPrefabs;
     
     public void Start()
@@ -23,9 +31,29 @@ public class PlayerLevelManager : MonoBehaviour
         SpawnPowerUps();
     }
 
-    public void PlayerDeath(Vector2 respawnPos)
+    private void FixedUpdate()
     {
-        movementController.Teleport(respawnPos);
+        var xPos = movementController.GetXPos();
+        if (xPos > _distanceTravelled)
+        {
+            _distanceTravelled = xPos;
+            distanceDisplay.text = $"{Convert.ToInt32(_distanceTravelled)}m travelled";
+        }
+
+        deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
+    }
+
+    private void Respawn()
+    {
+        _dead = false;
+        movementController.Respawn();
+    }
+
+    public void PlayerDeath()
+    {
+        _dead = true;
+        movementController.Death();
+        Invoke(nameof(Respawn), 3.0f);
     }
 
     public void AddSpeed(int speed)

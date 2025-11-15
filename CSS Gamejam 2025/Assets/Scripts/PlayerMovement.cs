@@ -75,8 +75,13 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Respawn"))
         {
             Debug.Log("Collided with death collider");
-            _levelManager.PlayerDeath(_lastGroundedPos);
+            _levelManager.PlayerDeath();
         }
+    }
+
+    public float GetXPos()
+    {
+        return _rb.transform.position.x;
     }
 
     public void SetLevelManager(PlayerLevelManager levelManager)
@@ -121,5 +126,16 @@ public class PlayerMovement : MonoBehaviour
     private void ResetSpeed()
     {
         maxVel = originalMaxVelocity;
+    }
+
+    public void Respawn()
+    {
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    public void Death()
+    {
+        _rb.bodyType = RigidbodyType2D.Static;
+        Teleport(_lastGroundedPos);
     }
 }

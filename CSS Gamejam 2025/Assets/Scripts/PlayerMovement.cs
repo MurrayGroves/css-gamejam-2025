@@ -164,7 +164,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        Debug.Log("On Jump");
         // Jump
         if (_levelManager.Dead) return;
 

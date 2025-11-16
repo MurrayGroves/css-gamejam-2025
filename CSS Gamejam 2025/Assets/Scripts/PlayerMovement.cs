@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int ResurrectionFinishTrigger = Animator.StringToHash("Resurrect Finish");
     [SerializeField] private float maxVel = 25.0f;
     [SerializeField] private float horizontalSpeed = 100.0f;
-    [SerializeField] private float jumpForce = 100.0f;
+    [SerializeField] private float jumpForce = 1000.0f;
     [SerializeField] private float easeIn = 0.3f;
     [SerializeField] private float easeOut = 0.6f;
     [SerializeField] private float groundDistance = 0.1f;
@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 aim = Vector2.right;
     private Animator _animator;
+    private float _originalMaxVelocity;
+    private float _originalGravity;
 
     private int _direction = 1;
 
@@ -33,12 +35,11 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = true;
     private bool _isJumping;
     private bool _isLanding;
-
+    private bool _isInverted = false;
     private float _lastDash;
 
     private Vector2 _lastGroundedPos;
     private PlayerLevelManager _levelManager;
-    private float _originalMaxVelocity;
     private Rigidbody2D _rb;
 
     private SpriteRenderer _spriteRenderer;
@@ -61,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _animator.SetBool(Property, false);
             _isLanding = false;
-            _lastGroundedPos = ray.point;
+            if (!ray.collider.CompareTag("death")) {
+                _lastGroundedPos = ray.point;
+            }
         }
         else
         {
@@ -97,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Respawn")) _levelManager.PlayerDeathImmediate();
+        if (other.gameObject.CompareTag("death")) _levelManager.PlayerDeath();
     }
 
     public float GetXPos()
@@ -113,6 +117,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_levelManager.Dead) return;
         var v = value.Get<Vector2>().normalized;
+        if (_isInverted)
+        {
+            v *= -1;
+        }
 
         _animator.SetBool(Move, v.x != 0);
 
@@ -155,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddSpeed(float speed)
     {
         _originalMaxVelocity = maxVel;
-        maxVel *= speed;
+        maxVel += speed;
         Invoke(nameof(ResetSpeed), 5);
     }
 
@@ -206,6 +214,27 @@ public class PlayerMovement : MonoBehaviour
         _lastDash = Time.time;
         _rb.AddForceX(dashSpeed * _direction);
         _animator.SetTrigger(Dash);
+    }
+
+    public void InvertControls()
+    {
+        _isInverted = true;
+    }
+
+    public void RevertControls()
+    {
+        _isInverted = false;
+    }
+
+    public void IncreaseGravity(int gravityMultiplier)
+    {
+        _originalGravity = _rb.gravityScale;
+        _rb.gravityScale *= gravityMultiplier;
+    }
+
+    public void RevertGravity()
+    {
+        _rb.gravityScale = _originalGravity;
     }
 
     public void OnAim(InputValue value)

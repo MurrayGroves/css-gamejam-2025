@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using PowerUps;
 using TMPro;
 using UnityEngine;
+using PowerUps;
+using Random = UnityEngine.Random;
 using Weapons;
 
 public class PlayerLevelManager : MonoBehaviour
@@ -11,6 +13,7 @@ public class PlayerLevelManager : MonoBehaviour
 
     [SerializeField] private PlayerMovement movementController;
     [SerializeField] private GameObject deathCollider;
+    [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
     [SerializeField] private List<GameObject> powerUpPrefabs;
 
@@ -26,6 +29,12 @@ public class PlayerLevelManager : MonoBehaviour
 
     public bool Dead { get; private set; }
 
+    public void Awake()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager.RegisterPlayerLevelManager(this);
+    }
+
     public float PosX => movementController.GetXPos();
 
     public void Start()
@@ -35,9 +44,6 @@ public class PlayerLevelManager : MonoBehaviour
         var pos = gameObject.transform.position;
         pos.y = -100.0f * grid.transform.childCount;
         gameObject.transform.position = pos;
-
-        gameManager = FindFirstObjectByType<GameManager>();
-        gameManager.RegisterPlayerLevelManager(this);
         movementController.SetLevelManager(this);
         SpawnPowerUps();
     }
@@ -52,6 +58,7 @@ public class PlayerLevelManager : MonoBehaviour
         }
 
         deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
+        ceiling.transform.position = new Vector2(xPos, ceiling.transform.position.y);
 
         if (Time.frameCount % fireRate == 1) ShootProjectile(projectilePrefab, movementController.aim);
     }
@@ -93,12 +100,39 @@ public class PlayerLevelManager : MonoBehaviour
 
     private void SpawnPowerUps()
     {
-        powerUpPrefabs.ForEach(powerUp =>
+        for (int i = 0; i < 1000; i++)
         {
-            powerUp.GetComponent<PowerUp>().SetLevelManager(this);
-            Instantiate(powerUp, new Vector3(0, -198), Quaternion.identity);
-        });
-        Debug.Log("Spawned power ups");
+            int num = Random.Range(-300, -310);
+            Instantiate(powerUpPrefabs[i % powerUpPrefabs.Count], new Vector3(i * 10, num), Quaternion.identity);
+        }
+        Debug.Log("POWER UP: Spawned power ups");
+    }
+
+    public void Teleport(Vector2 pos)
+    {
+        movementController.Teleport(pos);
+    }
+
+    public void InvertControls()
+    {
+        movementController.InvertControls();
+        Invoke(nameof(RevertControls), 10);
+    }
+    
+    public void RevertControls()
+    {
+        movementController.RevertControls();
+    }
+
+    public void IncreaseGravity(int gravityMultiplier)
+    {
+        movementController.IncreaseGravity(gravityMultiplier);
+        Invoke(nameof(RevertGravity), 10);
+    }
+
+    public void RevertGravity()
+    {
+        movementController.RevertGravity();
     }
 
     public void PlayerDeathImmediate()

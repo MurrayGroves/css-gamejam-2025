@@ -4,11 +4,19 @@ namespace PowerUps
 {
     public abstract class PowerUp : MonoBehaviour
     {
-        [SerializeField] protected PlayerLevelManager PlayerLevelManager;
-        
-        public void SetLevelManager(PlayerLevelManager playerLevelManager)
+        protected GameManager gameManager;
+        public PlayerLevelManager Player;
+        public AudioSource sfxPlayer;
+
+        public void SetLevelManager(PlayerLevelManager player)
         {
-            PlayerLevelManager = playerLevelManager;
+            Player = player;
+        }
+        
+        private void Awake()
+        {
+            gameManager = FindFirstObjectByType<GameManager>();
+            sfxPlayer = GameObject.FindWithTag("SFX").GetComponent<AudioSource>();
         }
     }
 }

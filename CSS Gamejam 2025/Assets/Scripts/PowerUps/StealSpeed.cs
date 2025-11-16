@@ -8,16 +8,20 @@ namespace PowerUps
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Stealing speed");
-
-            PlayerLevelManager.IncreaseSpeed(Speed);
-            PlayerLevelManager.gameManager.allPlayers.ForEach(player =>
+            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
+            collidedPlayer?.IncreaseSpeed(Speed);
+            
+            if (gameManager.allPlayers.Count < 2) return;
+            gameManager.allPlayers.ForEach(player =>
             {
-                if (player != PlayerLevelManager)
+                if (player != collidedPlayer)
                 {
                     player.ReduceSpeed(Speed);
+                    Debug.Log("POWER UP: Stealing speed");
                 }
             });
+            // consume power up
+            Destroy(gameObject);
         }
     }
 }

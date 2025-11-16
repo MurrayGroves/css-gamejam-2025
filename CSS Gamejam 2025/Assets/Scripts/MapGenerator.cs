@@ -1,3 +1,6 @@
+#if  UNITY_EDITOR
+
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -183,3 +186,4 @@ public class MapGenerator : MonoBehaviour
         return (_chunkPrefabs[Random.Range(0, _chunkPrefabs.Length)], null);
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -87,3 +88,4 @@ public static class ChunkConnectionsBaker
         Debug.Log($"ChunkConnectionsBaker: Baked {baked} prefab(s), skipped {skipped}.");
     }
 }
+#endif

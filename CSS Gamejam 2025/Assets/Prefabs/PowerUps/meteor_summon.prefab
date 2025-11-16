@@ -105,8 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUps.MeteorStrike
   Player: {fileID: 0}
+  sfxPlayer: {fileID: 0}
   meteorPrefab: {fileID: 8066152377757144354, guid: bea68b153f553b4bf8f3f2cef0951c26, type: 3}
   spawnInterval: 0.5
+  meteorSound: {fileID: 8300000, guid: 967c05815f1b0fcbea22f21c5d02ce46, type: 3}
 --- !u!61 &8068463036362621807
 BoxCollider2D:
   m_ObjectHideFlags: 0

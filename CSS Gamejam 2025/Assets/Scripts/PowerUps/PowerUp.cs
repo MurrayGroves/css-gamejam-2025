@@ -4,14 +4,8 @@ namespace PowerUps
 {
     public abstract class PowerUp : MonoBehaviour
     {
-        protected GameManager gameManager;
-        public PlayerLevelManager Player;
         public AudioSource sfxPlayer;
-
-        public void SetLevelManager(PlayerLevelManager player)
-        {
-            Player = player;
-        }
+        protected GameManager gameManager;
         
         private void Awake()
         {

@@ -6,6 +6,7 @@ namespace PowerUps
         public GameObject meteorPrefab;
         public float spawnInterval = 0.5f;
         public AudioClip meteorSound;
+        public PlayerLevelManager Player;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -17,6 +18,7 @@ namespace PowerUps
             GetComponent<Collider2D>().enabled = false;
             sfxPlayer.clip = meteorSound;
             sfxPlayer.Play();
+            Player = collidedPlayer;
             InvokeRepeating(nameof(Strike), 0f, spawnInterval);
             Invoke(nameof(StopStrike), 5f);
         }

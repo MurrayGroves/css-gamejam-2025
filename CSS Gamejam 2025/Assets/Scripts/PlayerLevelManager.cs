@@ -15,8 +15,6 @@ public class PlayerLevelManager : MonoBehaviour
     [SerializeField] private GameObject deathCollider;
     [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
-    [SerializeField] private List<GameObject> powerUpPrefabs;
-
     [SerializeField] public GameObject projectilePrefab;
 
     [SerializeField] private int fireRate = 10;
@@ -45,7 +43,7 @@ public class PlayerLevelManager : MonoBehaviour
         pos.y = -100.0f * grid.transform.childCount;
         gameObject.transform.position = pos;
         movementController.SetLevelManager(this);
-        SpawnPowerUps();
+        //SpawnPowerUps();
     }
 
     private void FixedUpdate()
@@ -96,16 +94,6 @@ public class PlayerLevelManager : MonoBehaviour
     {
         movementController.AddSpeed(1.0f / speed);
         Debug.Log("Reduced speed");
-    }
-
-    private void SpawnPowerUps()
-    {
-        for (int i = 0; i < 1000; i++)
-        {
-            int num = Random.Range(-300, -310);
-            Instantiate(powerUpPrefabs[i % powerUpPrefabs.Count], new Vector3(i * 10, num), Quaternion.identity);
-        }
-        Debug.Log("POWER UP: Spawned power ups");
     }
 
     public void Teleport(Vector2 pos)

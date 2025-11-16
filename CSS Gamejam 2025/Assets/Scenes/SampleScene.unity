@@ -205,7 +205,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: 4601566004427822774, guid: 0faf8791138ecffc4b3be1706eb05f24, type: 3}, insertIndex: -1, addedObject: {fileID: 2033576509}}]
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4601566004427822774, guid: 0faf8791138ecffc4b3be1706eb05f24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2033576509}
   m_SourcePrefab: {fileID: 100100000, guid: 0faf8791138ecffc4b3be1706eb05f24, type: 3}
 --- !u!4 &399016149 stripped
 Transform:
@@ -296,24 +299,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2033576507 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4601566004427822774, guid: 0faf8791138ecffc4b3be1706eb05f24, type: 3}
-  m_PrefabInstance: {fileID: 399016148}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2033576509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033576507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b066821e47ca46d48f708a0bf6f3a38d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  allPlayers: []
 --- !u!1 &662167171
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +309,6 @@ GameObject:
   m_Component:
   - component: {fileID: 662167176}
   - component: {fileID: 662167175}
-  - component: {fileID: 662167174}
   - component: {fileID: 662167173}
   m_Layer: 0
   m_Name: Grid
@@ -345,30 +329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8e9d4c24de043ab934dc52a01391ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapMovement
---- !u!114 &662167174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662167171}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28cdd1c729fc40dca62e354f3bfe587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelGeneration
-  levelPrefabs:
-  - {fileID: 8812895351504790265, guid: eeabf02240463423ab0de266a509ba56, type: 3}
-  - {fileID: 35304776891520835, guid: 4e087a1abb5ea47ab9f0c74f9d12bee8, type: 3}
-  - {fileID: 8812895351504790265, guid: b895e8159ee544e3f922a9d188614387, type: 3}
-  - {fileID: 8812895351504790265, guid: d3198e6c4bfdf4579a02177d6577f8d4, type: 3}
-  - {fileID: 8812895351504790265, guid: 272d390d91e7c47499eb717e3ceda80a, type: 3}
-  - {fileID: 8812895351504790265, guid: 9caf7039b20004fa497ccdb5e7e0daa1, type: 3}
-  - {fileID: 8812895351504790265, guid: 6ed6ff3200d384a47931be7a8dafe1e6, type: 3}
-  - {fileID: 8812895351504790265, guid: 14458799023ef45ab84a44f6051b82fe, type: 3}
-  - {fileID: 35304776891520835, guid: 915a4d722d2384c658c3456e1b467981, type: 3}
-  numberOfPieces: 10
-  targetTilemap: {fileID: 0}
 --- !u!156049354 &662167175
 Grid:
   m_ObjectHideFlags: 0
@@ -524,6 +484,24 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2033576507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4601566004427822774, guid: 0faf8791138ecffc4b3be1706eb05f24, type: 3}
+  m_PrefabInstance: {fileID: 399016148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2033576509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033576507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b066821e47ca46d48f708a0bf6f3a38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  allPlayers: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

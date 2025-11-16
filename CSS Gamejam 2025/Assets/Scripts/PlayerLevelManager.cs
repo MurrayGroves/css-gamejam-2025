@@ -20,6 +20,12 @@ public class PlayerLevelManager : MonoBehaviour
 
     public bool Dead { get; private set; }
 
+    public void Awake()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager.RegisterPlayerLevelManager(this);
+    }
+
     public void Start()
     {
         var grid = GameObject.Find("Grid");
@@ -27,9 +33,6 @@ public class PlayerLevelManager : MonoBehaviour
         var pos = gameObject.transform.position;
         pos.y = -100.0f * grid.transform.childCount;
         gameObject.transform.position = pos;
-
-        gameManager = FindFirstObjectByType<GameManager>();
-        gameManager.RegisterPlayerLevelManager(this);
         movementController.SetLevelManager(this);
         SpawnPowerUps();
     }
@@ -76,12 +79,10 @@ public class PlayerLevelManager : MonoBehaviour
     {
         for (int i = 0; i < 1000; i++)
         {
-            int num = Random.Range(-290, -300);
-            var instance = Instantiate(powerUpPrefabs[i % powerUpPrefabs.Count], new Vector3(i * 10, num), Quaternion.identity);
-            instance.GetComponent<PowerUp>().SetLevelManager(this);
+            int num = Random.Range(-300, -310);
+            Instantiate(powerUpPrefabs[i % powerUpPrefabs.Count], new Vector3(i * 10, num), Quaternion.identity);
         }
-        
-        Debug.Log("Spawned power ups");
+        Debug.Log("POWER UP: Spawned power ups");
     }
 
     public void Teleport(Vector2 pos)

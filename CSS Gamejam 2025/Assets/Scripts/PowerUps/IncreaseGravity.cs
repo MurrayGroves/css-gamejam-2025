@@ -6,16 +6,16 @@ namespace PowerUps
     {
         private const int Gravity = 20;
         
-        protected override void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("POWER UP: Gravity increased");
-            var collidedPlayer = other.GetComponent<PlayerLevelManager>();
-            if (Player.gameManager.allPlayers.Count < 2) return;
-            Player.gameManager.allPlayers.ForEach(player =>
+            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
+            if (gameManager.allPlayers.Count < 2) return;
+            gameManager.allPlayers.ForEach(player =>
             {
                 if (player != collidedPlayer)
                 {
-                    player.IncreaseGravity(Gravity);    
+                    player.IncreaseGravity(Gravity);
+                    Debug.Log("POWER UP: Gravity increased");
                 }
             });
             // consume power up

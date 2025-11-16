@@ -738,6 +738,7 @@ GameObject:
   - component: {fileID: 2417398389046137976}
   - component: {fileID: 5868117408217026532}
   - component: {fileID: 6272940115664502608}
+  - component: {fileID: 5004805317020249170}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -870,6 +871,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCam
   player: {fileID: 6577732978385106853}
+--- !u!81 &5004805317020249170
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6659224683994771232}
+  m_Enabled: 1
 --- !u!1 &7150740025750078530
 GameObject:
   m_ObjectHideFlags: 0

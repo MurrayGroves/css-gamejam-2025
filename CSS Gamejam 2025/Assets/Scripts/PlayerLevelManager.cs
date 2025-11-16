@@ -10,6 +10,7 @@ public class PlayerLevelManager : MonoBehaviour
     
     [SerializeField] private PlayerMovement movementController;
     [SerializeField] private GameObject deathCollider;
+    [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
 
     private float _distanceTravelled;
@@ -42,6 +43,7 @@ public class PlayerLevelManager : MonoBehaviour
         }
 
         deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
+        ceiling.transform.position = new Vector2(xPos, ceiling.transform.position.y);
     }
 
     private void Respawn()

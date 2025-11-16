@@ -8,7 +8,7 @@ public class PlayerCam : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    private Camera _cam;
+    public Camera _cam;
 
     private void Start()
     {

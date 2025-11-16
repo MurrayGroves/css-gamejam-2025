@@ -13,11 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int ResurrectionTime = Animator.StringToHash("Resurrection Time");
     private static readonly int ResurrectionFinishTrigger = Animator.StringToHash("Resurrect Finish");
     [SerializeField] private float maxVel = 25.0f;
-    [SerializeField] private float horizontalSpeed = 100.0f;
-    [SerializeField] private float jumpForce = 1000.0f;
+    [SerializeField] private float horizontalSpeed = 50.0f;
+    [SerializeField] private float jumpForce = 300.0f;
     [SerializeField] private float easeIn = 0.3f;
     [SerializeField] private float easeOut = 0.6f;
-    [SerializeField] private float groundDistance = 0.1f;
+    [SerializeField] private float groundDistance = 0.3f;
     [SerializeField] private float landingThreshold = 2.0f;
 
     [SerializeField] private float dashSpeed = 100.0f;

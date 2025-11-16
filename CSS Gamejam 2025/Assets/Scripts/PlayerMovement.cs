@@ -206,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.transform.position = pos;
         _rb.linearVelocity = Vector2.zero;
+        _isJumping = false;
     }
 
     public void AddSpeed(float speed)
@@ -229,6 +230,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.linearVelocity = Vector2.zero;
         _inputHeld = false;
+        _isJumping = false;
+        _lastJumpPressTime = float.NegativeInfinity;
+        _lastGroundedTime = float.NegativeInfinity;
         _rb.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger(Death1);
         _animator.SetFloat(ResurrectionTime, -1.0f / resurrectionDuration);

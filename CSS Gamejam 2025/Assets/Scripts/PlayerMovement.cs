@@ -46,10 +46,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 _targetVel;
 
+    [SerializeField] private AudioClip landingSound;
+
     [SerializeField] private float jumpBufferTime = 0.12f;
 
     private float _lastJumpPressTime = float.NegativeInfinity;
     private float _lastGroundedTime = float.NegativeInfinity;
+    private AudioSource _sfx;
 
     private const float GroundedLaunchVelocityThreshold = -0.1f;
 
@@ -58,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        _sfx = GameObject.FindWithTag("SFX").GetComponent<AudioSource>();
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
@@ -109,6 +113,14 @@ public class PlayerMovement : MonoBehaviour
                 _animator.SetTrigger(Landing);
                 _isLanding = true;
                 _isJumping = false;
+
+                // only play if it was a significant fall
+                if (!_sfx.isPlaying && Mathf.Abs(_rb.linearVelocity.y) > 15.0f)
+                {
+                    _sfx.clip = landingSound;
+                    _sfx.pitch = Random.Range(0.7f, 1.3f);
+                    _sfx.Play();
+                }
             }
         }
 

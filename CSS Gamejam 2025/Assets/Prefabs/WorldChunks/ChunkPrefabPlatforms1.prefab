@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145655598823789068}
   m_Layer: 0
-  m_Name: PrefabPlatforms1
+  m_Name: ChunkPrefabPlatforms1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -816,9 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkMetadata
   leftPoints:
-  - y: 2
-    clearance: 9
-  - y: 12
+  - y: 6
     clearance: 16
   rightPoints:
   - y: 7

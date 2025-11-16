@@ -318,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8629873019298594431}
   m_Layer: 0
-  m_Name: PrefabPlatform1
+  m_Name: ChunkPrefabPlatform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

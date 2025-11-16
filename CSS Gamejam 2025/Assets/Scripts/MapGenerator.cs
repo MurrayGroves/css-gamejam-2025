@@ -1,6 +1,3 @@
-#if  UNITY_EDITOR
-
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +5,6 @@ using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 using System.Linq;
 using JetBrains.Annotations;
-using UnityEditor;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -23,26 +19,14 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
-        var prefabGuids = AssetDatabase.FindAssets("t:Prefab");
+        
+        var findObjectsOfTypeAll = Resources.LoadAll<GameObject>("WorldChunks");
         var chunkPrefabs = new List<GameObject>();
-        foreach (var prefabGuid in prefabGuids)
+        for (var i = 0; i < findObjectsOfTypeAll.Length; i++)
         {
-            var path = AssetDatabase.GUIDToAssetPath(prefabGuid);
-            // if path is in WorldChunks folder:
-            if (!path.Contains("WorldChunks"))
-            {
-                continue;
-            }
-
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (prefab == null)
-            {
-                continue;
-            }
-
-
-            Debug.Log($"Found chunk prefab: {prefab.name}");
-            chunkPrefabs.Add(prefab);
+            var go = findObjectsOfTypeAll[i];
+            Debug.Log($"Found chunk prefab: {go.name}");
+            chunkPrefabs.Add(go);
         }
 
         _chunkPrefabs = chunkPrefabs.ToArray();
@@ -186,4 +170,3 @@ public class MapGenerator : MonoBehaviour
         return (_chunkPrefabs[Random.Range(0, _chunkPrefabs.Length)], null);
     }
 }
-#endif

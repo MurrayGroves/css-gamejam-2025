@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - SFX
+  - death
   layers:
   - Default
   - TransparentFX

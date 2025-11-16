@@ -3,13 +3,9 @@ namespace PowerUps
 {
     public class RiftAnomaly : PowerUp
     {
-        private AudioSource sfxPlayer;
+        
         public AudioClip riftSound;
-        private void Awake()
-        {
-            sfxPlayer = GameObject.FindWithTag("SFX").GetComponent<AudioSource>();
-        }
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("Swapping positions");
             sfxPlayer.clip = riftSound;

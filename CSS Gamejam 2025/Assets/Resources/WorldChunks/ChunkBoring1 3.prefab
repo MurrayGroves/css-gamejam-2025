@@ -586,12 +586,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkMetadata
   leftPoints:
-  - y: 8
-    clearance: 16
-  rightPoints:
+  - y: 1
+    clearance: 3
   - y: 5
     clearance: 2
   - y: 8
+    clearance: 3
+  - y: 12
+    clearance: 16
+  rightPoints:
+  - y: 2
+    clearance: 5
+  - y: 8
+    clearance: 5
+  - y: 14
     clearance: 16
 --- !u!19719996 &4245079101921965655
 TilemapCollider2D:

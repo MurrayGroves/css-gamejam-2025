@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashSpeed = 100.0f;
     [SerializeField] private float dashRechargeSeconds = 1.0f;
+
+    public Vector2 aim = Vector2.right;
     private Animator _animator;
 
     private int _direction = 1;
@@ -204,5 +206,11 @@ public class PlayerMovement : MonoBehaviour
         _lastDash = Time.time;
         _rb.AddForceX(dashSpeed * _direction);
         _animator.SetTrigger(Dash);
+    }
+
+    public void OnAim(InputValue value)
+    {
+        var temp = value.Get<Vector2>().normalized;
+        if (temp.sqrMagnitude != 0) aim = temp;
     }
 }

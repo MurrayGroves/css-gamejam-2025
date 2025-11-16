@@ -590,6 +590,8 @@ MonoBehaviour:
   distanceDisplay: {fileID: 1488168042467097763}
   powerUpPrefabs:
   - {fileID: 1689235630442431510, guid: df9058da32f9daf43a4a6d9c58f01086, type: 3}
+  projectilePrefab: {fileID: 4723920352468873809, guid: 8cf87d35f51a50092a4e09341aefd22d, type: 3}
+  fireRate: 100
 --- !u!1 &6418018786589596586
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +798,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.302614
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -869,6 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCam
   player: {fileID: 6577732978385106853}
+  levelManager: {fileID: 6166547986944629443}
 --- !u!1 &7150740025750078530
 GameObject:
   m_ObjectHideFlags: 0

@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var wasGrounded = _isGrounded;
         // Check if touching ground
         var ray = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, LayerMask.GetMask("Platform"));
         if (ray.collider && !_isJumping)
@@ -157,12 +156,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        Debug.Log("On Jump");
         // Jump
-        if (_levelManager.Dead || !value.isPressed) return;
+        if (_levelManager.Dead) return;
+
+        if (!value.isPressed)
+        {
+            
+            _rb.AddForceY(-_rb.linearVelocity.y * easeIn, ForceMode2D.Impulse);
+            return;
+        }
+
 
         _lastJumpPressTime = Time.time;
         TryConsumeBufferedJump();
     }
+
 
     private void TryConsumeBufferedJump()
     {

@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   allPlayers: []
+  mapGenerator: {fileID: 0}
 --- !u!1001 &4285074369602577034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -668,7 +669,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 219139975}
   - {fileID: 619394802}
   - {fileID: 662167176}
   - {fileID: 4285074369602577034}

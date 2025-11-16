@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using PowerUps;
 using TMPro;
 using UnityEngine;
-using PowerUps;
-using Random = UnityEngine.Random;
 using Weapons;
 
 public class PlayerLevelManager : MonoBehaviour
@@ -27,17 +24,17 @@ public class PlayerLevelManager : MonoBehaviour
 
     public bool Dead { get; private set; }
 
+    public float PosX => movementController.GetXPos();
+
     public void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         gameManager.RegisterPlayerLevelManager(this);
     }
 
-    public float PosX => movementController.GetXPos();
-
     public void Start()
     {
-        var grid = GameObject.Find("Grid");
+        var grid = GameObject.Find("/Grid");
         gameObject.transform.parent = grid.transform;
         var pos = gameObject.transform.position;
         pos.y = -100.0f * grid.transform.childCount;
@@ -106,7 +103,7 @@ public class PlayerLevelManager : MonoBehaviour
         movementController.InvertControls();
         Invoke(nameof(RevertControls), 10);
     }
-    
+
     public void RevertControls()
     {
         movementController.RevertControls();

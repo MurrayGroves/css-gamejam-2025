@@ -1,22 +1,31 @@
 using System;
-using TMPro;
 using System.Collections.Generic;
+using PowerUps;
+using TMPro;
 using UnityEngine;
 using PowerUps;
 using Random = UnityEngine.Random;
+using Weapons;
 
 public class PlayerLevelManager : MonoBehaviour
 {
     [HideInInspector] public GameManager gameManager;
-    
+
     [SerializeField] private PlayerMovement movementController;
     [SerializeField] private GameObject deathCollider;
     [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
+    [SerializeField] private List<GameObject> powerUpPrefabs;
+
+    [SerializeField] public GameObject projectilePrefab;
+
+    [SerializeField] private int fireRate = 10;
+
+    private Vector2 _aim;
 
     private float _distanceTravelled;
-    [SerializeField] private List<GameObject> powerUpPrefabs;
-    
+
+    public List<TeleportBoundary> Boundaries;
 
     public bool Dead { get; private set; }
 
@@ -25,6 +34,8 @@ public class PlayerLevelManager : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         gameManager.RegisterPlayerLevelManager(this);
     }
+
+    public float PosX => movementController.GetXPos();
 
     public void Start()
     {
@@ -48,6 +59,18 @@ public class PlayerLevelManager : MonoBehaviour
 
         deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
         ceiling.transform.position = new Vector2(xPos, ceiling.transform.position.y);
+
+        if (Time.frameCount % fireRate == 1) ShootProjectile(projectilePrefab, movementController.aim);
+    }
+
+    private void ShootProjectile(GameObject prefab, Vector2 vel)
+    {
+        var obj = Instantiate(prefab);
+        obj.transform.position = movementController.transform.position;
+        var proj = obj.GetComponent<Projectile>();
+        proj.InitialRB(vel);
+        proj.MarkInitial();
+        proj.SetLevelManager(this);
     }
 
     private void Respawn()
@@ -71,7 +94,7 @@ public class PlayerLevelManager : MonoBehaviour
 
     public void ReduceSpeed(int speed)
     {
-        movementController.AddSpeed(1.0f/speed);
+        movementController.AddSpeed(1.0f / speed);
         Debug.Log("Reduced speed");
     }
 

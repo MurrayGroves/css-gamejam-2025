@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapons;
 
 public class PlayerCam : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerCam : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
+    public PlayerLevelManager levelManager;
     public Camera _cam;
 
     private void Start()
@@ -25,8 +27,12 @@ public class PlayerCam : MonoBehaviour
             else
                 rectWidth /= 2.0f;
 
+        List<TeleportBoundary> boundaries = new();
+
+        TeleportBoundary boundary;
+        boundary.Axis = Axis.Y;
         var rowWidth = 0.0f;
-        var height = 0.0f;
+        var height = 1.0f - rectHeight;
         foreach (var cam in Cams)
         {
             var rect = new Rect();
@@ -34,7 +40,12 @@ public class PlayerCam : MonoBehaviour
             if (1.0f - rowWidth < float.Epsilon)
             {
                 rowWidth = 0.0f;
-                height += rectHeight;
+                height -= rectHeight;
+                boundary.Start = Cams[0].transform.position.y - _cam.orthographicSize;
+                boundary.End = cam.transform.position.y + _cam.orthographicSize;
+                boundary.From = Cams[0].levelManager;
+                boundary.To = levelManager;
+                boundaries.Add(boundary);
             }
 
             rect.x = rowWidth;
@@ -45,6 +56,9 @@ public class PlayerCam : MonoBehaviour
 
             cam.SetRect(rect);
         }
+
+        if (boundaries.Count == 0) Debug.LogWarning("NO BOUNDARY");
+        Projectile.SetBoundaries(new List<TeleportBoundary>(), boundaries);
     }
 
     // Update is called once per frame

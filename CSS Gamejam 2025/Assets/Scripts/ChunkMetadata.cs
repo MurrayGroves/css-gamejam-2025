@@ -51,7 +51,6 @@ public class ChunkMetadata : MonoBehaviour
             if (!tilemap.HasTile(groundPos)) continue; // need ground tile to stand on
 
             var clearance = 0;
-            var blocked = false;
             Debug.Log($"{tilemap.name} Searching clearance above edgeX={edgeX} y={y}");
             for (var h = 1; h <= maxScanAirAbove; h++)
             {
@@ -59,17 +58,14 @@ public class ChunkMetadata : MonoBehaviour
                 if (tilemap.HasTile(above))
                 {
                     Debug.Log($"{tilemap.name} edgeX={edgeX} y={y} blocked at height {h} by tile at {above}");
-                    blocked = true;
                     break;
                 }
                 clearance++;
             }
 
-            if (!blocked && clearance >= playerHeightInTiles)
-            {
-                Debug.Log($"{tilemap.name} edgeX={edgeX} y={y} has clearance {clearance}");
-                list.Add(new EdgePoint { y = y, clearance = clearance });
-            }
+            if (clearance < playerHeightInTiles) continue;
+            Debug.Log($"{tilemap.name} edgeX={edgeX} y={y} has clearance {clearance}");
+            list.Add(new EdgePoint { y = y, clearance = clearance });
         }
         return list.ToArray();
     }

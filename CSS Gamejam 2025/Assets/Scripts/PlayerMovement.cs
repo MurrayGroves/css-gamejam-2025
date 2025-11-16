@@ -7,21 +7,23 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int Jump = Animator.StringToHash("Jump");
     private static readonly int Landing = Animator.StringToHash("Landing");
     private static readonly int Dash = Animator.StringToHash("Dash");
-    private static readonly int Property = Animator.StringToHash("In Air");
+    private static readonly int InAir = Animator.StringToHash("In Air");
     private static readonly int Death1 = Animator.StringToHash("Death");
     private static readonly int Resurrect = Animator.StringToHash("Resurrect");
     private static readonly int ResurrectionTime = Animator.StringToHash("Resurrection Time");
     private static readonly int ResurrectionFinishTrigger = Animator.StringToHash("Resurrect Finish");
     [SerializeField] private float maxVel = 25.0f;
-    [SerializeField] private float horizontalSpeed = 100.0f;
-    [SerializeField] private float jumpForce = 1000.0f;
+    [SerializeField] private float horizontalSpeed = 50.0f;
+    [SerializeField] private float jumpForce = 800.0f;
     [SerializeField] private float easeIn = 0.3f;
     [SerializeField] private float easeOut = 0.6f;
-    [SerializeField] private float groundDistance = 0.1f;
+    [SerializeField] private float groundDistance = 0.3f;
     [SerializeField] private float landingThreshold = 2.0f;
 
     [SerializeField] private float dashSpeed = 100.0f;
     [SerializeField] private float dashRechargeSeconds = 1.0f;
+
+    public Vector2 aim = Vector2.right;
     private Animator _animator;
     private float _originalMaxVelocity;
     private float _originalGravity;
@@ -36,13 +38,20 @@ public class PlayerMovement : MonoBehaviour
     private bool _isInverted = false;
     private float _lastDash;
 
-    private Vector2 _lastGroundedPos;
+    private Vector2 _lastSafePos;
     private PlayerLevelManager _levelManager;
     private Rigidbody2D _rb;
 
     private SpriteRenderer _spriteRenderer;
 
     private Vector2 _targetVel;
+
+    [SerializeField] private float jumpBufferTime = 0.12f;
+
+    private float _lastJumpPressTime = float.NegativeInfinity;
+
+    private const float GroundedLaunchVelocityThreshold = -0.1f;
+
 
     private void Awake()
     {
@@ -53,21 +62,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        var wasGrounded = _isGrounded;
         // Check if touching ground
         var ray = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, LayerMask.GetMask("Platform"));
         if (ray.collider && !_isJumping)
         {
             _isGrounded = true;
-            _animator.SetBool(Property, false);
+            _animator.SetBool(InAir, false);
             _isLanding = false;
-            if (!ray.collider.CompareTag("death")) {
-                _lastGroundedPos = ray.point;
+            if (!ray.collider.CompareTag("death") && !ray.collider.CompareTag("unsafe"))
+            {
+                _lastSafePos = ray.point;
             }
         }
         else
         {
             _isGrounded = false;
-            _animator.SetBool(Property, true);
+            _animator.SetBool(InAir, true);
         }
 
         if (_inputHeld)
@@ -93,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
                 _isJumping = false;
             }
         }
+
+        TryConsumeBufferedJump();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -145,11 +158,28 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump(InputValue value)
     {
         // Jump
-        if (!_isGrounded || _isJumping || _levelManager.Dead) return;
+        if (_levelManager.Dead || !value.isPressed) return;
+
+        _lastJumpPressTime = Time.time;
+        TryConsumeBufferedJump();
+    }
+
+    private void TryConsumeBufferedJump()
+    {
+        if (Time.time - _lastJumpPressTime > jumpBufferTime) return;
+        if (_isJumping || !_isGrounded) return;
+        if (_rb.linearVelocity.y < GroundedLaunchVelocityThreshold) return;
+
+        PerformJump();
+    }
+
+    private void PerformJump()
+    {
         _animator.SetTrigger(Jump);
         _rb.AddForceY(jumpForce);
         _isGrounded = false;
         _isJumping = true;
+        _lastJumpPressTime = float.NegativeInfinity;
     }
 
     public void Teleport(Vector2 pos)
@@ -202,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DeathFinish()
     {
-        Teleport(_lastGroundedPos);
+        Teleport(_lastSafePos);
         _animator.SetTrigger(Resurrect);
     }
 
@@ -233,5 +263,11 @@ public class PlayerMovement : MonoBehaviour
     public void RevertGravity()
     {
         _rb.gravityScale = _originalGravity;
+    }
+
+    public void OnAim(InputValue value)
+    {
+        var temp = value.Get<Vector2>().normalized;
+        if (temp.sqrMagnitude != 0) aim = temp;
     }
 }

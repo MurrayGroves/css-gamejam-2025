@@ -60,7 +60,9 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _animator.SetBool(Property, false);
             _isLanding = false;
-            _lastGroundedPos = ray.point;
+            if (!ray.collider.CompareTag("death")) {
+                _lastGroundedPos = ray.point;
+            }
         }
         else
         {
@@ -96,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Respawn")) _levelManager.PlayerDeathImmediate();
+        if (other.gameObject.CompareTag("death")) _levelManager.PlayerDeath();
     }
 
     public float GetXPos()

@@ -1,0 +1,619 @@
+fileFormatVersion: 2
+guid: 42cf9e3fa5cba2943a3ca357fee41795
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8946227760488540715
+    second: rift-anomaly_0
+  - first:
+      213: 3396051733955113362
+    second: rift-anomaly_1
+  - first:
+      213: -1807012148537281486
+    second: rift-anomaly_2
+  - first:
+      213: -2869702025172608600
+    second: rift-anomaly_3
+  - first:
+      213: -3171241222162394963
+    second: rift-anomaly_4
+  - first:
+      213: -1406107636425019715
+    second: rift-anomaly_5
+  - first:
+      213: 5231372229459908850
+    second: rift-anomaly_6
+  - first:
+      213: 6892351445425423648
+    second: rift-anomaly_7
+  - first:
+      213: 3152669782653807047
+    second: rift-anomaly_8
+  - first:
+      213: -7526792673345704090
+    second: rift-anomaly_9
+  - first:
+      213: -7378047298412994023
+    second: rift-anomaly_10
+  - first:
+      213: 1988577334669408580
+    second: rift-anomaly_11
+  - first:
+      213: 4775439260442662741
+    second: rift-anomaly_12
+  - first:
+      213: 1884788509962343654
+    second: rift-anomaly_13
+  - first:
+      213: -9188346597460871328
+    second: rift-anomaly_14
+  - first:
+      213: 4570907101943746629
+    second: rift-anomaly_15
+  - first:
+      213: -4895076443303059839
+    second: rift-anomaly_16
+  - first:
+      213: 3587826562991299483
+    second: rift-anomaly_17
+  - first:
+      213: -5315548179860568204
+    second: rift-anomaly_18
+  - first:
+      213: 2251526654899453593
+    second: rift-anomaly_19
+  - first:
+      213: 6284372620739463878
+    second: rift-anomaly_20
+  - first:
+      213: 8348355720400939594
+    second: rift-anomaly_21
+  - first:
+      213: 8218984620221149891
+    second: rift-anomaly_22
+  - first:
+      213: 676157248603861245
+    second: rift-anomaly_23
+  - first:
+      213: 4424378487953929672
+    second: rift-anomaly_24
+  - first:
+      213: -6448935729048384661
+    second: rift-anomaly_25
+  - first:
+      213: 7347347970456523992
+    second: rift-anomaly_26
+  - first:
+      213: 1651437584971818811
+    second: rift-anomaly_27
+  - first:
+      213: -5858534354293517241
+    second: rift-anomaly_28
+  - first:
+      213: 7357202461780251607
+    second: rift-anomaly_29
+  - first:
+      213: 363156499728807052
+    second: rift-anomaly_30
+  - first:
+      213: 626953825500901872
+    second: rift-anomaly_31
+  - first:
+      213: 7947938994244057513
+    second: rift-anomaly_32
+  - first:
+      213: 8989657433158287743
+    second: rift-anomaly_33
+  - first:
+      213: 3285898538322597655
+    second: rift-anomaly_34
+  - first:
+      213: -2054884398662518752
+    second: rift-anomaly_35
+  - first:
+      213: -7637182546040037997
+    second: rift-anomaly_36
+  - first:
+      213: -2427199246266778056
+    second: rift-anomaly_37
+  - first:
+      213: -2785214473561525760
+    second: rift-anomaly_38
+  - first:
+      213: -6142443110872655612
+    second: rift-anomaly_39
+  - first:
+      213: 1786942846396666659
+    second: rift-anomaly_40
+  - first:
+      213: -879669029933107786
+    second: rift-anomaly_41
+  - first:
+      213: -7436087356102547126
+    second: rift-anomaly_42
+  - first:
+      213: -8961249876123915374
+    second: rift-anomaly_43
+  - first:
+      213: -9176040283358873599
+    second: rift-anomaly_44
+  - first:
+      213: 1636833134265903258
+    second: rift-anomaly_45
+  - first:
+      213: -7445472526853688969
+    second: rift-anomaly_46
+  - first:
+      213: -8912102975462679781
+    second: rift-anomaly_47
+  - first:
+      213: 9196076632152017198
+    second: rift-anomaly_48
+  - first:
+      213: -2206888000498529358
+    second: rift-anomaly_49
+  - first:
+      213: -6806631826948636965
+    second: rift-anomaly_50
+  - first:
+      213: 6839327793891602949
+    second: rift-anomaly_51
+  - first:
+      213: -4125982086956062993
+    second: rift-anomaly_52
+  - first:
+      213: 8205588496276128721
+    second: rift-anomaly_53
+  - first:
+      213: -4559081924139654327
+    second: rift-anomaly_54
+  - first:
+      213: 6967751760137782880
+    second: rift-anomaly_55
+  - first:
+      213: 5855386530316189303
+    second: rift-anomaly_56
+  - first:
+      213: -6357853342848542334
+    second: rift-anomaly_57
+  - first:
+      213: -2920564157508984679
+    second: rift-anomaly_58
+  - first:
+      213: 3918468042008197249
+    second: rift-anomaly_59
+  - first:
+      213: 7371803817448346711
+    second: rift-anomaly_60
+  - first:
+      213: -8623496638776658670
+    second: rift-anomaly_61
+  - first:
+      213: -5744150661216535704
+    second: rift-anomaly_62
+  - first:
+      213: -2244663569646077751
+    second: rift-anomaly_63
+  - first:
+      213: -8640678910050028626
+    second: rift-anomaly_64
+  - first:
+      213: 4882607606739416881
+    second: rift-anomaly_65
+  - first:
+      213: -4260075545848079114
+    second: rift-anomaly_66
+  - first:
+      213: 4759250290295690413
+    second: rift-anomaly_67
+  - first:
+      213: -7475806110570074812
+    second: rift-anomaly_68
+  - first:
+      213: -409001277421422813
+    second: rift-anomaly_69
+  - first:
+      213: 9105190296761065779
+    second: rift-anomaly_70
+  - first:
+      213: 4248390974595344975
+    second: rift-anomaly_71
+  - first:
+      213: -7628891701408942503
+    second: rift-anomaly_72
+  - first:
+      213: -7388000208488453743
+    second: rift-anomaly_73
+  - first:
+      213: -1327797904148186916
+    second: rift-anomaly_74
+  - first:
+      213: 5356944988431398376
+    second: rift-anomaly_75
+  - first:
+      213: -7021044921893017787
+    second: rift-anomaly_76
+  - first:
+      213: 4481703033062966922
+    second: rift-anomaly_77
+  - first:
+      213: 6120752853093503799
+    second: rift-anomaly_78
+  - first:
+      213: -385217398473251776
+    second: rift-anomaly_79
+  - first:
+      213: 1567816899857486551
+    second: rift-anomaly_80
+  - first:
+      213: 8507493573088757316
+    second: rift-anomaly_81
+  - first:
+      213: 8990004327251246679
+    second: rift-anomaly_82
+  - first:
+      213: -3949270951257492321
+    second: rift-anomaly_83
+  - first:
+      213: -1367576038503069585
+    second: rift-anomaly_84
+  - first:
+      213: 2836732414195918474
+    second: rift-anomaly_85
+  - first:
+      213: -7105966848470213466
+    second: rift-anomaly_86
+  - first:
+      213: -7442630383808917446
+    second: rift-anomaly_87
+  - first:
+      213: -2010496938149374211
+    second: rift-anomaly_88
+  - first:
+      213: 2728632509121066231
+    second: rift-anomaly_89
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rift-anomaly_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a68afbfb2672c70800000000000000
+      internalID: 8946227760488540715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2917e391f03312f20800000000000000
+      internalID: 3396051733955113362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234be9d56043ce6e0800000000000000
+      internalID: -1807012148537281486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a91e526635cc28d0800000000000000
+      internalID: -2869702025172608600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da05fef09ec7df3d0800000000000000
+      internalID: -3171241222162394963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe2ce6fd808c7ce0800000000000000
+      internalID: -1406107636425019715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f81dc06351999840800000000000000
+      internalID: 5231372229459908850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0258bb35f1d86af50800000000000000
+      internalID: 6892351445425423648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c92039b67880cb20800000000000000
+      internalID: 3152669782653807047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rift-anomaly_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f673731f57b8790800000000000000
+      internalID: -7526792673345704090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cbacc820a5cae1f3486cca4c1f8f8069
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      rift-anomaly_0: 8946227760488540715
+      rift-anomaly_1: 3396051733955113362
+      rift-anomaly_2: -1807012148537281486
+      rift-anomaly_3: -2869702025172608600
+      rift-anomaly_4: -3171241222162394963
+      rift-anomaly_5: -1406107636425019715
+      rift-anomaly_6: 5231372229459908850
+      rift-anomaly_7: 6892351445425423648
+      rift-anomaly_8: 3152669782653807047
+      rift-anomaly_9: -7526792673345704090
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

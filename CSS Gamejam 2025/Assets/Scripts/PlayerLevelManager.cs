@@ -112,7 +112,7 @@ public class PlayerLevelManager : MonoBehaviour
     public void InvertControls()
     {
         movementController.InvertControls();
-        Invoke(nameof(RevertControls), 10);
+        Invoke(nameof(RevertControls), 5);
     }
 
     public void RevertControls()

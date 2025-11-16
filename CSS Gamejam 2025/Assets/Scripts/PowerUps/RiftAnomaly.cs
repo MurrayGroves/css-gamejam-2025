@@ -7,6 +7,7 @@ namespace PowerUps
         
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!other.CompareTag("Player")) return;
             var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
             if (collidedPlayer == null) return;
             Debug.Log("Swapping positions");

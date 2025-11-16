@@ -3818,6 +3818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3346468726754101081, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3609801141949144428, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -3888,7 +3892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: jumpForce
-      value: 400
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: groundDistance

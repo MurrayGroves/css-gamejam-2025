@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int ResurrectionFinishTrigger = Animator.StringToHash("Resurrect Finish");
     [SerializeField] private float maxVel = 25.0f;
     [SerializeField] private float horizontalSpeed = 50.0f;
-    [SerializeField] private float jumpForce = 300.0f;
+    [SerializeField] private float jumpForce = 800.0f;
     [SerializeField] private float easeIn = 0.3f;
     [SerializeField] private float easeOut = 0.6f;
     [SerializeField] private float groundDistance = 0.3f;
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_inputHeld)
         {
-            if ((_direction == -1 && _rb.linearVelocity.x > -maxVel) ||
+            if (!_isGrounded || (_direction == -1 && _rb.linearVelocity.x > -maxVel) ||
                 (_direction == 1 && _rb.linearVelocity.x < maxVel))
                 _rb.AddForceX(horizontalSpeed * _direction);
         }

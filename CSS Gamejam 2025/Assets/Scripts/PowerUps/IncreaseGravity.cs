@@ -15,11 +15,13 @@ namespace PowerUps
                 if (player != collidedPlayer)
                 {
                     player.IncreaseGravity(Gravity);
+                    Notify(collidedPlayer);
                     Debug.Log("POWER UP: Gravity increased");
                 }
             });
             // consume power up
             Destroy(gameObject);
+    
         }
     }
 }

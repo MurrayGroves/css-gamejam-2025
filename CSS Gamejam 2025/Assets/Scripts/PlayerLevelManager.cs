@@ -12,6 +12,7 @@ public class PlayerLevelManager : MonoBehaviour
     [SerializeField] private GameObject deathCollider;
     [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
+    [SerializeField] public TMP_Text powerupDisplay;
     [SerializeField] public GameObject projectilePrefab;
 
     [SerializeField] private int fireRate = 10;

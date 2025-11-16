@@ -5,7 +5,7 @@ namespace PowerUps
     public class IceStorm : PowerUp
     {
         private const int Speed = 20;
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
@@ -16,6 +16,8 @@ namespace PowerUps
                 {
                     player.IncreaseSpeed(Speed);
                     Debug.Log("POWER UP: Ice storm");
+                    Notify(collidedPlayer);
+                    Destroy(gameObject);
                 }
             });
             // consume power up

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Spikes
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
+  m_AnimatedSprites:
+  - {fileID: -1891891021, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 719223200, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: -682109994, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 1205752176, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 815884484, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: -161780226, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 1678901903, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 849637173, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: -1583579247, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 357352583, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 1129512912, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 1164903197, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 109107974, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: -1237775642, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  - {fileID: 1544547898, guid: f04a6380261a52e428e0e019e5960a7f, type: 3}
+  m_MinSpeed: 3
+  m_MaxSpeed: 3
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 2
+  m_TileAnimationFlags: 0

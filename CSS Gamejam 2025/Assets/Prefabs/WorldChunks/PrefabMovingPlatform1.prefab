@@ -56,11 +56,11 @@ GameObject:
   - component: {fileID: 876375624861327302}
   - component: {fileID: 2034846417693451559}
   - component: {fileID: 7775039084161833935}
-  - component: {fileID: 6770077338986157621}
   - component: {fileID: 3349195656553687908}
   - component: {fileID: 4343086824837961422}
   - component: {fileID: 4252725867162197626}
   - component: {fileID: 8152539696622776003}
+  - component: {fileID: 1236179814567414230}
   m_Layer: 3
   m_Name: PrefabMovingPlatform1
   m_TagString: death
@@ -384,24 +384,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &6770077338986157621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583881813278275239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f389f3f087a242c1b55b87e95182a073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChunkMetadata
-  leftPoints:
-  - y: 14
-    clearance: 16
-  rightPoints:
-  - y: 14
-    clearance: 16
 --- !u!19719996 &3349195656553687908
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -496,6 +478,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformRider
   playerTag: Player
+--- !u!114 &1236179814567414230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583881813278275239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f389f3f087a242c1b55b87e95182a073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkMetadata
+  leftPoints:
+  - y: 1
+    clearance: 7
+  - y: 9
+    clearance: 4
+  - y: 14
+    clearance: 16
+  rightPoints:
+  - y: 1
+    clearance: 7
+  - y: 9
+    clearance: 4
+  - y: 14
+    clearance: 16
 --- !u!1 &8812895351504790265
 GameObject:
   m_ObjectHideFlags: 0

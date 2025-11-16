@@ -397,9 +397,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkMetadata
   leftPoints:
+  - y: 1
+    clearance: 7
+  - y: 9
+    clearance: 4
   - y: 14
     clearance: 16
   rightPoints:
+  - y: 1
+    clearance: 7
+  - y: 9
+    clearance: 4
   - y: 14
     clearance: 16
 --- !u!19719996 &3349195656553687908

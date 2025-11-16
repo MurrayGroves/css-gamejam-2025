@@ -3880,7 +3880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: maxVel
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: easeOut
@@ -3892,7 +3892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: jumpForce
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: groundDistance
@@ -3900,7 +3900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: horizontalSpeed
-      value: 15
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
       propertyPath: jumpReleaseGravityMultiplier

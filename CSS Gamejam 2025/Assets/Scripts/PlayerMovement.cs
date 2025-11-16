@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_inputHeld)
         {
-            if (!_isGrounded || (_direction == -1 && _rb.linearVelocity.x > -maxVel) ||
+            if ((_direction == -1 && _rb.linearVelocity.x > -maxVel) ||
                 (_direction == 1 && _rb.linearVelocity.x < maxVel))
                 _rb.AddForceX(horizontalSpeed * _direction);
         }

@@ -133,265 +133,529 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled 15_0
+      name: StickyPlatform_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 557d8b74b65b1f0409cd191d9ab1f38b
+      internalID: 1601666771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41cff96d06f12c647be4ee1dfae32f51
+      internalID: 1911310184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5305ac072b597f49ba9ead591337b1e
+      internalID: 1904914036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d44ff55f1fd234a8e75312bddd1668
+      internalID: 1406541836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2571085afe48c243bed800efd9fbafe
+      internalID: -1524623162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d0b2b35cb5f7e4287859b02f0be2e2
+      internalID: 1907360687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f476e930d372f6e44806e557f67b1b52
+      internalID: 2021151701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28823bfac30307a4698db9940ea2cd6f
+      internalID: 753538168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_8
       rect:
         serializedVersion: 2
         x: 8
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 579b59569aa62d360800000000000000
-      internalID: 7192928830650431861
+      spriteID: 7cf050ee803e4a247ab36448b51b8cde
+      internalID: -1300457141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_1
+      name: StickyPlatform_9
       rect:
         serializedVersion: 2
         x: 40
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9cb2d3fe760698fc0800000000000000
-      internalID: -3492154036537447479
+      spriteID: bdaa2a17c32c7234c80969db3e93d35a
+      internalID: 1267197612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_2
+      name: StickyPlatform_10
       rect:
         serializedVersion: 2
         x: 72
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bf605521a5bffefb0800000000000000
-      internalID: -4616194728758278405
+      spriteID: 49538ad73dd1cba4e8dbca80e4497977
+      internalID: 411644143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_3
+      name: StickyPlatform_11
       rect:
         serializedVersion: 2
         x: 104
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a5a89f50cf93aa040800000000000000
-      internalID: 4659600519062981210
+      spriteID: 6c4a411d5a77ab542bf696e3d399415a
+      internalID: 948553796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_4
+      name: StickyPlatform_12
       rect:
         serializedVersion: 2
         x: 136
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4efb6b8941f1677f0800000000000000
-      internalID: -615270125767573532
+      spriteID: 4f5cff5283451074c992b1dfe0883ede
+      internalID: -1971008898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_5
+      name: StickyPlatform_13
       rect:
         serializedVersion: 2
         x: 168
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 784eafec3e5d24720800000000000000
-      internalID: 2829058690348934279
+      spriteID: 793d16ce2d22d874199063f13a44a7ca
+      internalID: -2071923833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_6
+      name: StickyPlatform_14
       rect:
         serializedVersion: 2
         x: 200
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 41907f33bb5319e50800000000000000
-      internalID: 6814286789335255316
+      spriteID: 9e6d8e81958d7184ba397e18d2387be0
+      internalID: 2045284454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_7
+      name: StickyPlatform_15
       rect:
         serializedVersion: 2
         x: 232
         y: 32
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 476eeab9210510c60800000000000000
-      internalID: 7782589671924491892
+      spriteID: 1bc194533ee317c40955dc894161b261
+      internalID: 1536286346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_8
+      name: StickyPlatform_16
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2873aedf4a143f441a96e78703756f2a
+      internalID: 262413931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ecd842e7e099340a75553fe8339757
+      internalID: -218459781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_18
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2304ab16f9e144c4d9babb5fdc1465fc
+      internalID: -1845239983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_19
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac81ff2abb06384d830272aa36e4b9c
+      internalID: -66522666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickyPlatform_20
       rect:
         serializedVersion: 2
         x: 8
         y: 0
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 43434fb9b00735c50800000000000000
-      internalID: 6652784269719778356
+      spriteID: 49ad36939e71f3d41876d391ed5e113b
+      internalID: -1712878282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_9
+      name: StickyPlatform_21
       rect:
         serializedVersion: 2
         x: 40
         y: 0
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3cc600726a652da20800000000000000
-      internalID: 3085623966321110211
+      spriteID: d5dce52c1763d56468aefc8d9a61fee4
+      internalID: -1325766145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_10
+      name: StickyPlatform_22
       rect:
         serializedVersion: 2
         x: 72
         y: 0
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e6b38e304522499a0800000000000000
-      internalID: -6227314640508404882
+      spriteID: eca430ea09f060848b5bf140641e86e7
+      internalID: -969251752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled 15_11
+      name: StickyPlatform_23
       rect:
         serializedVersion: 2
         x: 104
         y: 0
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bb88ce37f3d315b40800000000000000
-      internalID: 5427186368695273659
+      spriteID: 289bcd6646fb1414da9166f67da22498
+      internalID: 1888013720
       vertices: []
       indices: 
       edges: []
@@ -408,20 +672,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":8.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Untitled 15_0: 7192928830650431861
-      Untitled 15_1: -3492154036537447479
-      Untitled 15_10: -6227314640508404882
-      Untitled 15_11: 5427186368695273659
-      Untitled 15_2: -4616194728758278405
-      Untitled 15_3: 4659600519062981210
-      Untitled 15_4: -615270125767573532
-      Untitled 15_5: 2829058690348934279
-      Untitled 15_6: 6814286789335255316
-      Untitled 15_7: 7782589671924491892
-      Untitled 15_8: 6652784269719778356
-      Untitled 15_9: 3085623966321110211
+      StickyPlatform_0: 1601666771
+      StickyPlatform_1: 1911310184
+      StickyPlatform_10: 411644143
+      StickyPlatform_11: 948553796
+      StickyPlatform_12: -1971008898
+      StickyPlatform_13: -2071923833
+      StickyPlatform_14: 2045284454
+      StickyPlatform_15: 1536286346
+      StickyPlatform_16: 262413931
+      StickyPlatform_17: -218459781
+      StickyPlatform_18: -1845239983
+      StickyPlatform_19: -66522666
+      StickyPlatform_2: 1904914036
+      StickyPlatform_20: -1712878282
+      StickyPlatform_21: -1325766145
+      StickyPlatform_22: -969251752
+      StickyPlatform_23: 1888013720
+      StickyPlatform_3: 1406541836
+      StickyPlatform_4: -1524623162
+      StickyPlatform_5: 1907360687
+      StickyPlatform_6: 2021151701
+      StickyPlatform_7: 753538168
+      StickyPlatform_8: -1300457141
+      StickyPlatform_9: 1267197612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

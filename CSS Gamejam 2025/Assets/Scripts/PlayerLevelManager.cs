@@ -12,11 +12,12 @@ public class PlayerLevelManager : MonoBehaviour
     [SerializeField] private GameObject deathCollider;
     [SerializeField] private TMP_Text distanceDisplay;
 
-    private bool _dead;
-
     private float _distanceTravelled;
     [SerializeField] private List<GameObject> powerUpPrefabs;
     
+
+    public bool Dead { get; private set; }
+
     public void Start()
     {
         var grid = GameObject.Find("Grid");
@@ -45,14 +46,14 @@ public class PlayerLevelManager : MonoBehaviour
 
     private void Respawn()
     {
-        _dead = false;
+        Dead = false;
         movementController.Respawn();
     }
 
     public void PlayerDeath()
     {
-        _dead = true;
-        movementController.Death();
+        Dead = true;
+        movementController.Death(1.0f, 2.0f);
         Invoke(nameof(Respawn), 3.0f);
     }
 
@@ -76,5 +77,12 @@ public class PlayerLevelManager : MonoBehaviour
             Instantiate(powerUp, new Vector3(0, -198), Quaternion.identity);
         });
         Debug.Log("Spawned power ups");
+    }
+
+    public void PlayerDeathImmediate()
+    {
+        Dead = true;
+        movementController.DeathImmediate(3.0f);
+        Invoke(nameof(Respawn), 3.0f);
     }
 }

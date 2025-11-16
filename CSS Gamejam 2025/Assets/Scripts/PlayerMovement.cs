@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed = 100.0f;
     [SerializeField] private float dashRechargeSeconds = 1.0f;
     private Animator _animator;
-    private float _originalMaxVelocity;
 
     private int _direction = 1;
 
@@ -37,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 _lastGroundedPos;
     private PlayerLevelManager _levelManager;
+    private float _originalMaxVelocity;
     private Rigidbody2D _rb;
 
     private SpriteRenderer _spriteRenderer;
@@ -169,6 +169,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Death(float deathDuration, float resurrectionDuration)
     {
+        _rb.linearVelocity = Vector2.zero;
+        _inputHeld = false;
         _rb.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger(Death1);
         _animator.SetFloat(ResurrectionTime, -1.0f / resurrectionDuration);
@@ -177,6 +179,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void DeathImmediate(float resurrectionDuration)
     {
+        _rb.linearVelocity = Vector2.zero;
+        _inputHeld = false;
         _rb.bodyType = RigidbodyType2D.Static;
         _animator.SetFloat(ResurrectionTime, -1.0f / resurrectionDuration);
         DeathFinish();

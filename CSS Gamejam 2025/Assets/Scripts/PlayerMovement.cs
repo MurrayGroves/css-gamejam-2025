@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int ResurrectionFinishTrigger = Animator.StringToHash("Resurrect Finish");
     [SerializeField] private float maxVel = 25.0f;
     [SerializeField] private float horizontalSpeed = 100.0f;
-    [SerializeField] private float jumpForce = 100.0f;
+    [SerializeField] private float jumpForce = 1000.0f;
     [SerializeField] private float easeIn = 0.3f;
     [SerializeField] private float easeOut = 0.6f;
     [SerializeField] private float groundDistance = 0.1f;
@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddSpeed(float speed)
     {
         _originalMaxVelocity = maxVel;
-        maxVel *= speed;
+        maxVel += speed;
         Invoke(nameof(ResetSpeed), 5);
     }
 
@@ -232,6 +232,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void RevertGravity()
     {
-        _rb.gravityScale = _rb.gravityScale;
+        _rb.gravityScale = _originalGravity;
     }
 }

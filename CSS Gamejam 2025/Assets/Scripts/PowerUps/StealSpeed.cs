@@ -10,10 +10,10 @@ namespace PowerUps
         {
             Debug.Log("Stealing speed");
 
-            PlayerLevelManager.IncreaseSpeed(Speed);
-            PlayerLevelManager.gameManager.allPlayers.ForEach(player =>
+            Player.IncreaseSpeed(Speed);
+            Player.gameManager.allPlayers.ForEach(player =>
             {
-                if (player != PlayerLevelManager)
+                if (player != Player)
                 {
                     player.ReduceSpeed(Speed);
                 }

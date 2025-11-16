@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
 using PowerUps;
+using Random = UnityEngine.Random;
 
 public class PlayerLevelManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerLevelManager : MonoBehaviour
     
     [SerializeField] private PlayerMovement movementController;
     [SerializeField] private GameObject deathCollider;
+    [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
 
     private float _distanceTravelled;
@@ -42,6 +44,7 @@ public class PlayerLevelManager : MonoBehaviour
         }
 
         deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
+        ceiling.transform.position = new Vector2(xPos, ceiling.transform.position.y);
     }
 
     private void Respawn()
@@ -71,12 +74,36 @@ public class PlayerLevelManager : MonoBehaviour
 
     private void SpawnPowerUps()
     {
-        powerUpPrefabs.ForEach(powerUp =>
+        for (int i = 0; i < powerUpPrefabs.Count; i++)
         {
-            powerUp.GetComponent<PowerUp>().SetLevelManager(this);
-            Instantiate(powerUp, new Vector3(0, -198), Quaternion.identity);
-        });
+            powerUpPrefabs[i].GetComponent<PowerUp>().SetLevelManager(this);
+            int num = Random.Range(-290, -300);
+            Instantiate(powerUpPrefabs[i], new Vector3(i * 10, num), Quaternion.identity);
+        }
+        
         Debug.Log("Spawned power ups");
+    }
+
+    public void InvertControls()
+    {
+        movementController.InvertControls();
+        Invoke(nameof(RevertControls), 10);
+    }
+    
+    public void RevertControls()
+    {
+        movementController.RevertControls();
+    }
+
+    public void IncreaseGravity(int gravityMultiplier)
+    {
+        movementController.IncreaseGravity(gravityMultiplier);
+        Invoke(nameof(RevertGravity), 10);
+    }
+
+    public void RevertGravity()
+    {
+        movementController.RevertGravity();
     }
 
     public void PlayerDeathImmediate()

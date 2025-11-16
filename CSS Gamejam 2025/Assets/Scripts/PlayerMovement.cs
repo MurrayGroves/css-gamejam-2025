@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed = 100.0f;
     [SerializeField] private float dashRechargeSeconds = 1.0f;
     private Animator _animator;
+    private float _originalMaxVelocity;
+    private float _originalGravity;
 
     private int _direction = 1;
 
@@ -31,12 +33,11 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = true;
     private bool _isJumping;
     private bool _isLanding;
-
+    private bool _isInverted = false;
     private float _lastDash;
 
     private Vector2 _lastGroundedPos;
     private PlayerLevelManager _levelManager;
-    private float _originalMaxVelocity;
     private Rigidbody2D _rb;
 
     private SpriteRenderer _spriteRenderer;
@@ -114,6 +115,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_levelManager.Dead) return;
         var v = value.Get<Vector2>().normalized;
+        if (_isInverted)
+        {
+            v *= -1;
+        }
 
         _animator.SetBool(Move, v.x != 0);
 
@@ -207,5 +212,26 @@ public class PlayerMovement : MonoBehaviour
         _lastDash = Time.time;
         _rb.AddForceX(dashSpeed * _direction);
         _animator.SetTrigger(Dash);
+    }
+
+    public void InvertControls()
+    {
+        _isInverted = true;
+    }
+
+    public void RevertControls()
+    {
+        _isInverted = false;
+    }
+
+    public void IncreaseGravity(int gravityMultiplier)
+    {
+        _originalGravity = _rb.gravityScale;
+        _rb.gravityScale *= gravityMultiplier;
+    }
+
+    public void RevertGravity()
+    {
+        _rb.gravityScale = _rb.gravityScale;
     }
 }

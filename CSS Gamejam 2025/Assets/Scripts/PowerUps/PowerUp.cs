@@ -4,11 +4,11 @@ namespace PowerUps
 {
     public abstract class PowerUp : MonoBehaviour
     {
-        [SerializeField] protected PlayerLevelManager PlayerLevelManager;
+        public PlayerLevelManager Player;
         
         public void SetLevelManager(PlayerLevelManager playerLevelManager)
         {
-            PlayerLevelManager = playerLevelManager;
+            Player = playerLevelManager;
         }
     }
 }

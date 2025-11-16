@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97433642d1e0db30fb28082d5df51253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RiftAnomaly
-  sfxPlayer: {fileID: 4358137275028838586, guid: a9a29709031bc226c9bcf2e794ceeff0, type: 3}
+  Player: {fileID: 0}
+  sfxPlayer: {fileID: 0}
   riftSound: {fileID: 8300000, guid: ea8c91af101bf53c695c9db7038a63e7, type: 3}
-  playerLevelManager: {fileID: 6166547986944629443, guid: 8ff4be3f6f85469468d369e9ffe712ca, type: 3}
 --- !u!61 &7344515478202850507
 BoxCollider2D:
   m_ObjectHideFlags: 0

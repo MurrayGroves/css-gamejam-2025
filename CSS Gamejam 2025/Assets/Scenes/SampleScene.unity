@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFXPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 2827483457690559874, guid: a9a29709031bc226c9bcf2e794ceeff0, type: 3}
+      propertyPath: m_TagString
+      value: SFX
+      objectReference: {fileID: 0}
     - target: {fileID: 6688820519956973890, guid: a9a29709031bc226c9bcf2e794ceeff0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.29397
@@ -366,7 +370,6 @@ GameObject:
   m_Component:
   - component: {fileID: 662167176}
   - component: {fileID: 662167175}
-  - component: {fileID: 662167177}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -403,63 +406,6 @@ Transform:
   - {fileID: 399016149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &805355424
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 343845713286873412, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_Name
-      value: rift-anomaly
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.29397
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -296.043
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1516064094377759767, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
 --- !u!1 &1183494164
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,4 +616,3 @@ SceneRoots:
   - {fileID: 662167176}
   - {fileID: 4285074369602577034}
   - {fileID: 549843250}
-  - {fileID: 805355424}

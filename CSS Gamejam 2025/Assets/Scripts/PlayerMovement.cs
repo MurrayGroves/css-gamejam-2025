@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int Landing = Animator.StringToHash("Landing");
     private static readonly int Dash = Animator.StringToHash("Dash");
     private static readonly int Property = Animator.StringToHash("In Air");
+    //private static readonly int InvertedMove = Animator.StringToHash("InvertedMove");
+    
     [SerializeField] private float maxVel = 25.0f;
     [SerializeField] private float horizontalSpeed = 100.0f;
     [SerializeField] private float jumpForce = 100.0f;
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashRechargeSeconds = 1.0f;
     private Animator _animator;
     private float _originalMaxVelocity;
+    private float _originalGravity;
 
     private int _direction = 1;
 
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = true;
     private bool _isJumping;
     private bool _isLanding;
-
+    private bool _isInverted = false;
     private float _lastDash;
 
     private Vector2 _lastGroundedPos;
@@ -111,6 +114,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         var v = value.Get<Vector2>().normalized;
+        if (_isInverted)
+        {
+            v *= -1;
+        }
 
         _animator.SetBool(Move, v.x != 0);
 
@@ -179,5 +186,26 @@ public class PlayerMovement : MonoBehaviour
         _lastDash = Time.time;
         _rb.AddForceX(dashSpeed * _direction);
         _animator.SetTrigger(Dash);
+    }
+
+    public void InvertControls()
+    {
+        _isInverted = true;
+    }
+
+    public void RevertControls()
+    {
+        _isInverted = false;
+    }
+
+    public void IncreaseGravity(int gravityMultiplier)
+    {
+        _originalGravity = _rb.gravityScale;
+        _rb.gravityScale *= gravityMultiplier;
+    }
+
+    public void RevertGravity()
+    {
+        _rb.gravityScale = _rb.gravityScale;
     }
 }

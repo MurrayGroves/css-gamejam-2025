@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9079953943315640161}
   - component: {fileID: 3045850852536660844}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 8152539696622776003}
   m_Layer: 3
   m_Name: PrefabMovingPlatform1
-  m_TagString: Untagged
+  m_TagString: death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,9 +505,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8629873019298594431}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PrefabMovingPlatform1
-  m_TagString: Untagged
+  m_TagString: unsafe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

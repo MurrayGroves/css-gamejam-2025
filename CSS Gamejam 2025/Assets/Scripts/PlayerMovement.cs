@@ -36,14 +36,14 @@ public class PlayerMovement : MonoBehaviour
     private bool _isInverted = false;
     private float _lastDash;
 
-    private Vector2 _lastGroundedPos;
+    private Vector2 _lastSafePos;
     private PlayerLevelManager _levelManager;
     private Rigidbody2D _rb;
 
     private SpriteRenderer _spriteRenderer;
 
     private Vector2 _targetVel;
-    
+
     [SerializeField] private float jumpBufferTime = 0.12f;
 
     private float _lastJumpPressTime = float.NegativeInfinity;
@@ -68,8 +68,9 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _animator.SetBool(InAir, false);
             _isLanding = false;
-            if (!ray.collider.CompareTag("death")) {
-                _lastGroundedPos = ray.point;
+            if (!ray.collider.CompareTag("death") && !ray.collider.CompareTag("unsafe"))
+            {
+                _lastSafePos = ray.point;
             }
         }
         else
@@ -101,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
                 _isJumping = false;
             }
         }
+
         TryConsumeBufferedJump();
     }
 
@@ -159,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
         _lastJumpPressTime = Time.time;
         TryConsumeBufferedJump();
     }
+
     private void TryConsumeBufferedJump()
     {
         if (Time.time - _lastJumpPressTime > jumpBufferTime) return;
@@ -227,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DeathFinish()
     {
-        Teleport(_lastGroundedPos);
+        Teleport(_lastSafePos);
         _animator.SetTrigger(Resurrect);
     }
 

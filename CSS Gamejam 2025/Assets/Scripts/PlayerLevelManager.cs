@@ -84,6 +84,11 @@ public class PlayerLevelManager : MonoBehaviour
         Debug.Log("Spawned power ups");
     }
 
+    public void Teleport(Vector2 pos)
+    {
+        movementController.Teleport(pos);
+    }
+
     public void InvertControls()
     {
         movementController.InvertControls();

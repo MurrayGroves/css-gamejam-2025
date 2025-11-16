@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4782655452861175205}
   - component: {fileID: 754880261168145165}
   - component: {fileID: 7344515478202850507}
+  - component: {fileID: 8600455079322500401}
   m_Layer: 0
   m_Name: rift-anomaly
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8946227760488540715, guid: 0865f499158eac528951306339f5744a, type: 3}
+  m_Sprite: {fileID: 8946227760488540715, guid: 42cf9e3fa5cba2943a3ca357fee41795, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RiftAnomaly
   Player: {fileID: 0}
-  sfxPlayer: {fileID: 0}
   riftSound: {fileID: 8300000, guid: ea8c91af101bf53c695c9db7038a63e7, type: 3}
 --- !u!61 &7344515478202850507
 BoxCollider2D:
@@ -145,7 +145,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.21}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.16, y: 0.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -153,3 +153,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16, y: 0.21}
   m_EdgeRadius: 0
+--- !u!95 &8600455079322500401
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343845713286873412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d526fdc6833423febc40035cf48c6a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

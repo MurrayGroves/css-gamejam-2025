@@ -19,7 +19,7 @@ namespace PowerUps
             var oldPosPlayerOne = playerOne.transform.position;
             playerOne.Teleport(playerTwo.transform.position);
             playerTwo.Teleport(oldPosPlayerOne);
-            Destroy(This);
+            Destroy(this);
         }
     }
 }

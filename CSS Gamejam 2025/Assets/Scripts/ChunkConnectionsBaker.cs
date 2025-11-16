@@ -61,6 +61,7 @@ public static class ChunkConnectionsBaker
                     continue;
                 }
                 
+                
                 var meta = tilemap.GetComponent<ChunkMetadata>() ??
                            instance.GetComponentInChildren<ChunkMetadata>(true);
                 if (meta == null)

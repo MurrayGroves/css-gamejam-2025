@@ -12,7 +12,7 @@ public class MeteorMovement : MonoBehaviour
     protected void OnTriggerEnter2D(Collider2D other)
     {
         var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
-        collidedPlayer.PlayerDeathImmediate();
+        //collidedPlayer.PlayerDeathImmediate();
         Destroy(gameObject);
     }
 }

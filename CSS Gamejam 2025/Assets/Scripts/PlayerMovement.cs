@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int Landing = Animator.StringToHash("Landing");
     private static readonly int Dash = Animator.StringToHash("Dash");
     private static readonly int Property = Animator.StringToHash("In Air");
-    //private static readonly int InvertedMove = Animator.StringToHash("InvertedMove");
-    
+    private static readonly int Death1 = Animator.StringToHash("Death");
+    private static readonly int Resurrect = Animator.StringToHash("Resurrect");
+    private static readonly int ResurrectionTime = Animator.StringToHash("Resurrection Time");
+    private static readonly int ResurrectionFinishTrigger = Animator.StringToHash("Resurrect Finish");
     [SerializeField] private float maxVel = 25.0f;
     [SerializeField] private float horizontalSpeed = 100.0f;
     [SerializeField] private float jumpForce = 100.0f;
@@ -58,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _animator.SetBool(Property, false);
             _isLanding = false;
-            _lastGroundedPos = _rb.transform.position;
+            _lastGroundedPos = ray.point;
         }
         else
         {
@@ -93,12 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger enter");
-        if (other.gameObject.CompareTag("Respawn"))
-        {
-            Debug.Log("Collided with death collider");
-            _levelManager.PlayerDeath();
-        }
+        if (other.gameObject.CompareTag("Respawn")) _levelManager.PlayerDeathImmediate();
     }
 
     public float GetXPos()
@@ -113,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+        if (_levelManager.Dead) return;
         var v = value.Get<Vector2>().normalized;
         if (_isInverted)
         {
@@ -144,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump(InputValue value)
     {
         // Jump
-        if (!_isGrounded || _isJumping) return;
+        if (!_isGrounded || _isJumping || _levelManager.Dead) return;
         _animator.SetTrigger(Jump);
         _rb.AddForceY(jumpForce);
         _isGrounded = false;
@@ -174,15 +172,40 @@ public class PlayerMovement : MonoBehaviour
         _rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    public void Death()
+    public void Death(float deathDuration, float resurrectionDuration)
     {
+        _rb.linearVelocity = Vector2.zero;
+        _inputHeld = false;
         _rb.bodyType = RigidbodyType2D.Static;
+        _animator.SetTrigger(Death1);
+        _animator.SetFloat(ResurrectionTime, -1.0f / resurrectionDuration);
+        Invoke(nameof(DeathFinish), deathDuration);
+    }
+
+    public void DeathImmediate(float resurrectionDuration)
+    {
+        _rb.linearVelocity = Vector2.zero;
+        _inputHeld = false;
+        _rb.bodyType = RigidbodyType2D.Static;
+        _animator.SetFloat(ResurrectionTime, -1.0f / resurrectionDuration);
+        DeathFinish();
+        Invoke(nameof(ResurrectionFinish), resurrectionDuration);
+    }
+
+    private void ResurrectionFinish()
+    {
+        _animator.SetTrigger(ResurrectionFinishTrigger);
+    }
+
+    private void DeathFinish()
+    {
         Teleport(_lastGroundedPos);
+        _animator.SetTrigger(Resurrect);
     }
 
     public void OnDash(InputValue value)
     {
-        if (!(Time.time - _lastDash > dashRechargeSeconds)) return;
+        if (!(Time.time - _lastDash > dashRechargeSeconds) || _levelManager.Dead) return;
         _lastDash = Time.time;
         _rb.AddForceX(dashSpeed * _direction);
         _animator.SetTrigger(Dash);

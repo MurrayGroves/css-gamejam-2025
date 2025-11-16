@@ -230,12 +230,12 @@ TextureImporter:
       name: Resurrect_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 90
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 142
+        y: 95
+        width: 28
+        height: 20
+      alignment: 9
+      pivot: {x: 0.60714287, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: Resurrect_1
       rect:
         serializedVersion: 2
-        x: 141
-        y: 94
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 206
+        y: 95
+        width: 28
+        height: 20
+      alignment: 9
+      pivot: {x: 0.60714287, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,103 +271,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_2
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 94
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16e8d62be13245be0800000000000000
-      internalID: -1489526962003276191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_3
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 112
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad0e3c10b30c74630800000000000000
-      internalID: 3911306161059782874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_4
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 103
-        width: 27
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45f211d6f899facb0800000000000000
-      internalID: -4850489432365519020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_5
-      rect:
-        serializedVersion: 2
-        x: 297
-        y: 110
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aee9b6007563786c0800000000000000
-      internalID: -4141281585046774038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_6
       rect:
         serializedVersion: 2
-        x: 330
-        y: 106
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 14
+        y: 88
+        width: 28
+        height: 20
+      alignment: 9
+      pivot: {x: 0.60714287, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -384,12 +296,12 @@ TextureImporter:
       name: Resurrect_7
       rect:
         serializedVersion: 2
-        x: 352
-        y: 107
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 78
+        y: 91
+        width: 28
+        height: 20
+      alignment: 9
+      pivot: {x: 0.60714287, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -403,125 +315,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_8
-      rect:
-        serializedVersion: 2
-        x: 363
-        y: 106
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1303b74ae34c1bf70800000000000000
-      internalID: 9201351287021187121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_9
-      rect:
-        serializedVersion: 2
-        x: 417
-        y: 95
-        width: 10
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9f6374f939ebd1520800000000000000
-      internalID: 2674503294969657081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_10
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 87
-        width: 30
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b6d1567172ba7c50800000000000000
-      internalID: 6663834799034193585
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_11
-      rect:
-        serializedVersion: 2
-        x: 266
-        y: 93
-        width: 20
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb2fab703f90a29a0800000000000000
-      internalID: -6257177792866487618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_12
-      rect:
-        serializedVersion: 2
-        x: 285
-        y: 92
-        width: 17
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd26abb2b037b0b10800000000000000
-      internalID: 1948777755583341277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_13
       rect:
         serializedVersion: 2
-        x: 325
-        y: 88
-        width: 26
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 267
+        y: 93
+        width: 37
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5405406, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -535,37 +337,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_14
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 100
-        width: 15
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8acb7838c0dd00e70800000000000000
-      internalID: 9079499894594976936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_15
       rect:
         serializedVersion: 2
-        x: 353
-        y: 87
-        width: 18
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 326
+        y: 88
+        width: 44
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5909091, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -579,103 +359,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_16
-      rect:
-        serializedVersion: 2
-        x: 354
-        y: 100
-        width: 15
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b5c33c8f958256650800000000000000
-      internalID: 6225426426800323675
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_17
-      rect:
-        serializedVersion: 2
-        x: 387
-        y: 97
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7d60347f86b657c0800000000000000
-      internalID: -4082875284918866562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_18
-      rect:
-        serializedVersion: 2
-        x: 395
-        y: 93
-        width: 18
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 868f6eabfdc2c8c60800000000000000
-      internalID: 7821675992260737128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_19
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 97
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5e422aa60adbbc2d0800000000000000
-      internalID: -3257301408790993691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_20
       rect:
         serializedVersion: 2
-        x: 386
-        y: 80
-        width: 27
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 387
+        y: 79
+        width: 54
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5740741, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -689,37 +381,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_21
-      rect:
-        serializedVersion: 2
-        x: 419
-        y: 78
-        width: 22
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2bc61fc6fb0451ef0800000000000000
-      internalID: -138133022654239566
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_22
       rect:
         serializedVersion: 2
-        x: 451
+        x: 452
         y: 87
-        width: 33
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 55
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5454545, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -733,37 +403,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_23
-      rect:
-        serializedVersion: 2
-        x: 484
-        y: 86
-        width: 24
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8306882d57bbbf210800000000000000
-      internalID: 1367893026554798136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_24
       rect:
         serializedVersion: 2
-        x: 1
+        x: 2
         y: 23
-        width: 35
+        width: 58
         height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5689655, y: 0.16666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -777,103 +425,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_25
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 29
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3d703853f49fd3a80800000000000000
-      internalID: -8485352004300634157
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_26
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 22
-        width: 25
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a9b6b7b42590b6240800000000000000
-      internalID: 4785929278069631898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_27
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 23
-        width: 34
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e73c3394e76b313e0800000000000000
-      internalID: -2084121549032144002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_28
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 28
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eff4f459a509423c0800000000000000
-      internalID: -4385221418425561090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_29
       rect:
         serializedVersion: 2
-        x: 100
-        y: 27
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 131
+        y: 23
+        width: 66
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -890,12 +450,12 @@ TextureImporter:
       name: Resurrect_30
       rect:
         serializedVersion: 2
-        x: 100
-        y: 22
-        width: 24
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 201
+        y: 23
+        width: 50
+        height: 7
+      alignment: 9
+      pivot: {x: 0.53999996, y: 0.2857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -909,81 +469,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_31
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 23
-        width: 34
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4294fbfa93f834500800000000000000
-      internalID: 379304271553710372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_32
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 22
-        width: 34
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5256e0d726aa218a0800000000000000
-      internalID: -6335814385775254235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_33
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 23
-        width: 28
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2f85e4503edd676d0800000000000000
-      internalID: -2992960935224780558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_34
       rect:
         serializedVersion: 2
-        x: 228
-        y: 22
-        width: 20
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 67
+        y: 23
+        width: 56
+        height: 10
+      alignment: 9
+      pivot: {x: 0.55357146, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -997,59 +491,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resurrect_35
-      rect:
-        serializedVersion: 2
-        x: 248
-        y: 23
-        width: 44
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 76fcaae94df4620d0800000000000000
-      internalID: -3447980690091880601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resurrect_36
-      rect:
-        serializedVersion: 2
-        x: 292
-        y: 22
-        width: 20
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 080fbf3b9f00a5ab0800000000000000
-      internalID: -5018697762284507008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Resurrect_37
       rect:
         serializedVersion: 2
-        x: 312
+        x: 259
         y: 23
-        width: 44
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14285715}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1066,12 +516,12 @@ TextureImporter:
       name: Resurrect_38
       rect:
         serializedVersion: 2
-        x: 356
-        y: 22
-        width: 24
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 323
+        y: 23
+        width: 56
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14285715}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1088,7 +538,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 68d75c8b14ffdeaa3a4567f46ef80b5a
     internalID: 0
     vertices: []
     indices: 
@@ -1096,7 +546,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Resurrect_0: -254872698890656083
       Resurrect_1: 2431463248920701380

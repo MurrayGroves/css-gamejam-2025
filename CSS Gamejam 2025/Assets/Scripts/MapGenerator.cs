@@ -12,10 +12,11 @@ public class MapGenerator : MonoBehaviour
     [ItemNotNull] private GameObject[] _chunkPrefabs;
 
     [NotNull] public GameObject startingPrefab;
-    // public Grid grid;
 
-    private readonly Camera _camera;
+    [SerializeField] [NotNull] private Camera _camera;
 
+    private readonly List<Tilemap> _spawnedChunks = new();
+    private readonly List<Transform> _chunkRoots = new();
 
     private void Start()
     {
@@ -42,14 +43,41 @@ public class MapGenerator : MonoBehaviour
         }
 
         _chunkPrefabs = chunkPrefabs.ToArray();
+
+
         for (var i = 0; i < 20; i++)
         {
             Generate();
         }
     }
 
-    private readonly List<Tilemap> _spawnedChunks = new();
-    private readonly List<Transform> _chunkRoots = new();
+
+    private void Update()
+    {
+        // if the last spawned chunk is fully visible in camera, spawn a new chunk
+        if (_spawnedChunks.Count == 0) return;
+
+        var lastTilemap = _spawnedChunks[^1];
+        var lastBounds = lastTilemap.localBounds;
+        var lastRoot = _chunkRoots[^1];
+        var lastWorldBounds = new Bounds(
+            lastRoot.position + lastBounds.center,
+            lastBounds.size
+        );
+
+
+        var camHeight = 2f * _camera.orthographicSize;
+        var camWidth = camHeight * _camera.aspect;
+        var camBounds = new Bounds(
+            _camera.transform.position,
+            new Vector3(camWidth, camHeight, 0f)
+        );
+
+        if (camBounds.max.x >= lastWorldBounds.max.x - 1f)
+        {
+            Generate();
+        }
+    }
 
     private (Transform root, Tilemap tilemap) InstantiateChunk(GameObject prefab)
     {

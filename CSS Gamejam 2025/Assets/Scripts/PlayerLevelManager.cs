@@ -11,13 +11,15 @@ public class PlayerLevelManager : MonoBehaviour
     
     [SerializeField] private PlayerMovement movementController;
     [SerializeField] private GameObject deathCollider;
+    [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
-
-    private bool _dead;
 
     private float _distanceTravelled;
     [SerializeField] private List<GameObject> powerUpPrefabs;
     
+
+    public bool Dead { get; private set; }
+
     public void Start()
     {
         var grid = GameObject.Find("Grid");
@@ -42,18 +44,19 @@ public class PlayerLevelManager : MonoBehaviour
         }
 
         deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
+        ceiling.transform.position = new Vector2(xPos, ceiling.transform.position.y);
     }
 
     private void Respawn()
     {
-        _dead = false;
+        Dead = false;
         movementController.Respawn();
     }
 
     public void PlayerDeath()
     {
-        _dead = true;
-        movementController.Death();
+        Dead = true;
+        movementController.Death(1.0f, 2.0f);
         Invoke(nameof(Respawn), 3.0f);
     }
 
@@ -101,5 +104,12 @@ public class PlayerLevelManager : MonoBehaviour
     public void RevertGravity()
     {
         movementController.RevertGravity();
+    }
+
+    public void PlayerDeathImmediate()
+    {
+        Dead = true;
+        movementController.DeathImmediate(3.0f);
+        Invoke(nameof(Respawn), 3.0f);
     }
 }

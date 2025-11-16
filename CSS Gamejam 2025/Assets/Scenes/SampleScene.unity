@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000fb2c54d4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662167176}
   - component: {fileID: 662167175}
-  - component: {fileID: 662167173}
+  - component: {fileID: 662167177}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -317,18 +317,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &662167173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662167171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8e9d4c24de043ab934dc52a01391ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapMovement
 --- !u!156049354 &662167175
 Grid:
   m_ObjectHideFlags: 0
@@ -416,7 +404,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 994a986144e464060919d410ab7c315d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -502,6 +490,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   allPlayers: []
+--- !u!1001 &4285074369602577034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.75432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.18687
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003356513302040299, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061657684601612970, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
+      propertyPath: m_Name
+      value: Jukebox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8db3ec25618efe29fb9b45964aab911c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -509,3 +554,4 @@ SceneRoots:
   - {fileID: 219139975}
   - {fileID: 619394802}
   - {fileID: 662167176}
+  - {fileID: 4285074369602577034}

@@ -15,6 +15,7 @@ namespace PowerUps
             if (!other.CompareTag("Player")) return;
             if (this.IsDestroyed()) return;
             base.Start();
+            if (this.IsDestroyed()) return;
             var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
             Debug.Log(collidedPlayer);
             if (collidedPlayer == null) return;

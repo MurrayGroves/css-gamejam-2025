@@ -56,12 +56,12 @@ namespace PowerUps
                 Debug.LogWarning($"[PowerUp] Could not find chunk prefab ancestor for {GetType().Name}");
             }
             
-            if (gameManager.allPlayers.Count < requiredPlayers)
-            {
-                Debug.Log(
-                    $"[PowerUp] Destroying {GetType().Name} - not enough players ({gameManager.allPlayers.Count}/{requiredPlayers})");
-                Destroy(gameObject); // don't spawn power-up if not enough players
-            }
+            // if (gameManager.allPlayers.Count < requiredPlayers)
+            // {
+            //     Debug.Log(
+            //         $"[PowerUp] Destroying {GetType().Name} - not enough players ({gameManager.allPlayers.Count}/{requiredPlayers})");
+            //     Destroy(gameObject); // don't spawn power-up if not enough players
+            // }
         }
 
         protected void Notify(PlayerLevelManager player)

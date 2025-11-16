@@ -1,10 +1,16 @@
 using UnityEngine;
+
 namespace PowerUps
 {
     public class RiftAnomaly : PowerUp
     {
         public AudioClip riftSound;
-        
+
+        public new void Start()
+        {
+            Destroy(gameObject); // disable
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
@@ -18,6 +24,7 @@ namespace PowerUps
             var oldPosPlayerOne = playerOne.transform.position;
             playerOne.Teleport(playerTwo.transform.position);
             playerTwo.Teleport(oldPosPlayerOne);
+            Notify(collidedPlayer);
             Destroy(this);
         }
     }

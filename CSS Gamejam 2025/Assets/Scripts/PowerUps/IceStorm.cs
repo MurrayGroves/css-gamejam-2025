@@ -5,7 +5,7 @@ namespace PowerUps
     public class IceStorm : PowerUp
     {
         private const int Speed = 20;
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
@@ -17,6 +17,8 @@ namespace PowerUps
                 {
                     player.IncreaseSpeed(Speed);
                     Debug.Log("POWER UP: Ice storm");
+                    Notify(collidedPlayer);
+                    Destroy(gameObject);
                 }
             });
             // consume power up

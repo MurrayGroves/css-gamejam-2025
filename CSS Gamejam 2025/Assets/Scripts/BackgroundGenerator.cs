@@ -52,11 +52,11 @@ public class BackgroundGenerator : MonoBehaviour
 
         var minCell = backgroundTilemap.WorldToCell(new Vector3(
             cameraPos.x - viewWidth - bufferTiles,
-            cameraPos.y - viewHeight / 2f - bufferTiles,
+            cameraPos.y - viewHeight - bufferTiles,
             0f));
         var maxCell = backgroundTilemap.WorldToCell(new Vector3(
             cameraPos.x + viewWidth + bufferTiles,
-            cameraPos.y + viewHeight / 2f + bufferTiles,
+            cameraPos.y + viewHeight + bufferTiles,
             0f));
 
         for (var x = minCell.x; x <= maxCell.x; x++)

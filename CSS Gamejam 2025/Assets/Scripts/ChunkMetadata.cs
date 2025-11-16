@@ -1,25 +1,19 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class ChunkMetadata : MonoBehaviour
 {
-    [System.Serializable]
-    public struct EdgePoint
-    {
-        public int y;          // Tile Y coordinate where player can stand
-        public int clearance;  // Free vertical tiles above
-    }
+    private const int chunkHeight = 16;
 
     public EdgePoint[] leftPoints;
     public EdgePoint[] rightPoints;
+    private readonly int maxScanAirAbove = 16;
 
-    
-    private int playerHeightInTiles = 1;
-    private int maxScanAirAbove = 16;
 
-    private const int chunkHeight = 16;
-    
+    private readonly int playerHeightInTiles = 2;
+
     public void BakeFromTilemap(Tilemap tilemap)
     {
         if (tilemap == null)
@@ -32,13 +26,13 @@ public class ChunkMetadata : MonoBehaviour
         var b = tilemap.cellBounds;
 
         Debug.Log($"[{name}] has bounds: {b}");
-        int minX = b.xMin;
-        int maxX = b.xMax - 1;
+        var minX = b.xMin;
+        var maxX = b.xMax - 1;
 
         leftPoints = CollectEdgePoints(tilemap, minX, b.yMin, chunkHeight);
         rightPoints = CollectEdgePoints(tilemap, maxX, b.yMin, chunkHeight);
 
-        
+
         Debug.Log($"[{name}] Collected {leftPoints.Length} left points and {rightPoints.Length} right points.");
     }
 
@@ -60,6 +54,7 @@ public class ChunkMetadata : MonoBehaviour
                     Debug.Log($"{tilemap.name} edgeX={edgeX} y={y} blocked at height {h} by tile at {above}");
                     break;
                 }
+
                 clearance++;
             }
 
@@ -67,6 +62,14 @@ public class ChunkMetadata : MonoBehaviour
             Debug.Log($"{tilemap.name} edgeX={edgeX} y={y} has clearance {clearance}");
             list.Add(new EdgePoint { y = y, clearance = clearance });
         }
+
         return list.ToArray();
+    }
+
+    [Serializable]
+    public struct EdgePoint
+    {
+        public int y; // Tile Y coordinate where player can stand
+        public int clearance; // Free vertical tiles above
     }
 }

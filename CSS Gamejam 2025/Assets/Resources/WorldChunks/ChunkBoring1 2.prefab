@@ -523,10 +523,6 @@ MonoBehaviour:
   leftPoints:
   - y: 1
     clearance: 4
-  - y: 6
-    clearance: 1
-  - y: 8
-    clearance: 1
   - y: 10
     clearance: 16
   rightPoints:

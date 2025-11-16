@@ -57,9 +57,9 @@ GameObject:
   - component: {fileID: 2034846417693451559}
   - component: {fileID: 7775039084161833935}
   - component: {fileID: 4446626013981703420}
-  - component: {fileID: 8792990413464554955}
+  - component: {fileID: 2069083229357060279}
   m_Layer: 3
-  m_Name: PrefabPlatform1
+  m_Name: PrefabPlatform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,8 +279,8 @@ MonoBehaviour:
   rightPoints:
   - y: 5
     clearance: 16
---- !u!61 &8792990413464554955
-BoxCollider2D:
+--- !u!19719996 &2069083229357060279
+TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -313,18 +313,10 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2, y: 5.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.0666666, y: 1.0666667}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &8812895351504790265
 GameObject:
   m_ObjectHideFlags: 0

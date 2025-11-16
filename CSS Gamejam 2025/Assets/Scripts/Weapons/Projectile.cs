@@ -36,7 +36,7 @@ namespace Weapons
 
         public float projectileSpeed = 10.0f;
 
-        private Collider2D _collider;
+        public GameObject prefab;
 
         private TeleportBoundary? _currentBoundary;
         private bool _finishedReceiving;
@@ -57,23 +57,25 @@ namespace Weapons
 
         private Vector2 _otherLastFrame;
 
-        private Rigidbody2D _rb;
-
         private bool _teleported;
+
+        protected Collider2D Collider;
+
+        protected Rigidbody2D Rb;
 
         private void Start()
         {
             Destroy(gameObject, 10);
-            _rb = GetComponent<Rigidbody2D>();
+            Rb = GetComponent<Rigidbody2D>();
             _teleported = false;
             _frameCount = 0;
-            _collider = GetComponent<Collider2D>();
+            Collider = GetComponent<Collider2D>();
         }
 
         private void FixedUpdate()
         {
             _frameCount++;
-            if (_rb.linearVelocity.y < 0)
+            if (Rb.linearVelocity.y < 0)
             {
                 if (!_finishedReceiving && _currentBoundary.HasValue)
                 {
@@ -81,11 +83,10 @@ namespace Weapons
                     var xDiff = _other.PosX - _otherLastFrame.x;
                     var myXDiff = _myLevelManager.PosX - _myLastFrame.x;
                     xDiff -= myXDiff;
-                    Debug.Log($"xDiff {xDiff}");
-                    _rb.position = new Vector2(_rb.position.x - xDiff, _rb.position.y);
-                    if (_rb.position.y < _currentBoundary.Value.End)
+                    Rb.position = new Vector2(Rb.position.x - xDiff, Rb.position.y);
+                    if (Rb.position.y < _currentBoundary.Value.End)
                     {
-                        _collider.enabled = true;
+                        Collider.enabled = true;
                         _finishedReceiving = true;
                         _currentBoundary = null;
                     }
@@ -96,29 +97,29 @@ namespace Weapons
                     var xDiff = _other.PosX - _otherLastFrame.x;
                     var myXDiff = _myLevelManager.PosX - _myLastFrame.x;
                     xDiff -= myXDiff;
-                    _rb.position = new Vector2(_rb.position.x - xDiff, _rb.position.y);
+                    Rb.position = new Vector2(Rb.position.x - xDiff, Rb.position.y);
                 }
                 else if (_teleported && !_finishedSending && _currentBoundary.HasValue)
                 {
-                    if (_rb.position.y < _currentBoundary.Value.Start)
+                    if (Rb.position.y < _currentBoundary.Value.Start)
                     {
                         _currentBoundary = null;
                         _finishedSending = true;
+                        Collider.enabled = true;
                     }
                 }
 
 
                 foreach (var kvp in yHeadingDown)
-                    if (_rb.position.y < kvp.Start + 1.0f && _rb.position.y > kvp.End && _finishedReceiving &&
+                    if (Rb.position.y < kvp.Start + 1.0f && Rb.position.y > kvp.End && _finishedReceiving &&
                         !_teleported)
                     {
                         _currentBoundary = kvp;
-                        var clone = Instantiate(_myLevelManager.projectilePrefab);
-                        Debug.Log($"Mapped from {_rb.position}");
-                        clone.transform.position = TransferFrameOfReference(kvp, _rb.position);
-                        Debug.Log($"To {clone.transform.position}");
+                        var clone = Instantiate(prefab);
+                        clone.transform.position = TransferFrameOfReference(kvp, Rb.position);
                         var proj = clone.GetComponent<Projectile>();
-                        proj.SetRB(_rb.linearVelocity);
+                        proj.prefab = prefab;
+                        proj.SetRB(Rb.linearVelocity);
                         proj.SetSender(_currentBoundary.Value, new Vector2(_currentBoundary.Value.From.PosX, 0),
                             new Vector2(_currentBoundary.Value.To.PosX, 0));
                         _other = _currentBoundary.Value.To;
@@ -127,7 +128,7 @@ namespace Weapons
                     }
             }
 
-            else if (_rb.linearVelocity.y > 0)
+            else if (Rb.linearVelocity.y > 0)
             {
                 if (!_finishedReceiving && _currentBoundary.HasValue)
                 {
@@ -135,14 +136,13 @@ namespace Weapons
                     var xDiff = _other.PosX - _otherLastFrame.x;
                     var myXDiff = _myLevelManager.PosX - _myLastFrame.x;
                     xDiff -= myXDiff;
-                    Debug.Log($"xDiff {xDiff}");
 
-                    _rb.position = new Vector2(_rb.position.x - xDiff, _rb.position.y);
-                    if (_rb.position.y > _currentBoundary.Value.End)
+                    Rb.position = new Vector2(Rb.position.x - xDiff, Rb.position.y);
+                    if (Rb.position.y > _currentBoundary.Value.End)
                     {
                         _finishedReceiving = true;
                         _currentBoundary = null;
-                        _collider.enabled = true;
+                        Collider.enabled = true;
                     }
                 }
                 else if (_teleported && _finishedSending)
@@ -151,29 +151,28 @@ namespace Weapons
                     var xDiff = _other.PosX - _otherLastFrame.x;
                     var myXDiff = _myLevelManager.PosX - _myLastFrame.x;
                     xDiff -= myXDiff;
-                    Debug.Log($"Running on {_fromTeleport}");
-                    _rb.position = new Vector2(_rb.position.x - xDiff, _rb.position.y);
+                    Rb.position = new Vector2(Rb.position.x - xDiff, Rb.position.y);
                 }
                 else if (_teleported && !_finishedSending && _currentBoundary.HasValue)
                 {
-                    if (_rb.position.y > _currentBoundary.Value.Start)
+                    if (Rb.position.y > _currentBoundary.Value.Start)
                     {
                         _currentBoundary = null;
                         _finishedSending = true;
+                        Collider.enabled = true;
                     }
                 }
 
                 foreach (var kvp in yHeadingUp)
-                    if (_rb.position.y > kvp.Start - 1.0f && _rb.position.y < kvp.End && !_teleported &&
+                    if (Rb.position.y > kvp.Start - 1.0f && Rb.position.y < kvp.End && !_teleported &&
                         _finishedReceiving)
                     {
                         _currentBoundary = kvp;
-                        var clone = Instantiate(_myLevelManager.projectilePrefab);
-                        Debug.Log($"Mapped from {_rb.position}");
-                        clone.transform.position = TransferFrameOfReference(kvp, _rb.position);
-                        Debug.Log($"To {clone.transform.position}");
+                        var clone = Instantiate(prefab);
+                        clone.transform.position = TransferFrameOfReference(kvp, Rb.position);
                         var proj = clone.GetComponent<Projectile>();
-                        proj.SetRB(_rb.linearVelocity);
+                        proj.prefab = prefab;
+                        proj.SetRB(Rb.linearVelocity);
                         proj.SetSender(_currentBoundary.Value, new Vector2(_currentBoundary.Value.From.PosX, 0),
                             new Vector2(_currentBoundary.Value.To.PosX, 0));
                         _other = _currentBoundary.Value.To;
@@ -211,12 +210,10 @@ namespace Weapons
 
         private Vector2 TransferFrameOfReference(TeleportBoundary boundary, Vector2 pos)
         {
-            Debug.Log($"Boundary: {boundary.ToString()}");
             if (boundary.Axis == Axis.Y)
             {
                 pos.y = boundary.End - (boundary.Start - pos.y);
                 var relativeX = boundary.To.PosX - boundary.From.PosX;
-                Debug.Log($"{boundary.To == boundary.From}");
                 pos.x += relativeX;
             }
             else
@@ -255,21 +252,18 @@ namespace Weapons
                 boundary.From = i.To;
                 return boundary;
             }).ToList();
-
-            setHeadingDown.Select(i => i.ToString()).ToList().ForEach(Debug.Log);
-            yHeadingUp.Select(i => i.ToString()).ToList().ForEach(Debug.Log);
         }
 
         public void SetRB(Vector2 vel)
         {
-            if (!_rb) _rb = GetComponent<Rigidbody2D>();
-            _rb.linearVelocity = vel;
+            if (!Rb) Rb = GetComponent<Rigidbody2D>();
+            Rb.linearVelocity = vel;
         }
 
         public void InitialRB(Vector2 vel)
         {
-            if (!_rb) _rb = GetComponent<Rigidbody2D>();
-            _rb.linearVelocity = vel * projectileSpeed;
+            if (!Rb) Rb = GetComponent<Rigidbody2D>();
+            Rb.linearVelocity = vel * projectileSpeed;
         }
     }
 }

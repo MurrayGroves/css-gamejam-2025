@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const float GroundedLaunchVelocityThreshold = -0.1f;
+
+    private const float CoyoteTime = 0.1f;
     private static readonly int Move = Animator.StringToHash("Move");
     private static readonly int Jump = Animator.StringToHash("Jump");
     private static readonly int Landing = Animator.StringToHash("Landing");
@@ -24,39 +27,39 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashRechargeSeconds = 1.0f;
 
     public Vector2 aim = Vector2.right;
+
+    [SerializeField] private AudioClip landingSound;
+
+    [SerializeField] private float jumpBufferTime = 0.12f;
+
+    [SerializeField] private float grenadeCooldown = 10.0f;
     private Animator _animator;
-    private float _originalMaxVelocity;
-    private float _originalGravity;
 
     private int _direction = 1;
 
     private bool _inputHeld;
 
     private bool _isGrounded = true;
+    private bool _isInverted;
     private bool _isJumping;
     private bool _isLanding;
-    private bool _isInverted = false;
     private float _lastDash;
+
+    private float _lastGrenade;
+    private float _lastGroundedTime = float.NegativeInfinity;
+
+    private float _lastJumpPressTime = float.NegativeInfinity;
 
     private Vector2 _lastSafePos;
     private PlayerLevelManager _levelManager;
+    private float _originalGravity;
+    private float _originalMaxVelocity;
     private Rigidbody2D _rb;
+    private AudioSource _sfx;
 
     private SpriteRenderer _spriteRenderer;
 
     private Vector2 _targetVel;
-
-    [SerializeField] private AudioClip landingSound;
-
-    [SerializeField] private float jumpBufferTime = 0.12f;
-
-    private float _lastJumpPressTime = float.NegativeInfinity;
-    private float _lastGroundedTime = float.NegativeInfinity;
-    private AudioSource _sfx;
-
-    private const float GroundedLaunchVelocityThreshold = -0.1f;
-
-    private const float CoyoteTime = 0.1f;
 
 
     private void Awake()
@@ -69,10 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isGrounded)
-        {
-            _lastGroundedTime = Time.time;
-        }
+        if (_isGrounded) _lastGroundedTime = Time.time;
 
         // Check if touching ground
         var ray = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, LayerMask.GetMask("Platform"));
@@ -81,10 +81,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _animator.SetBool(InAir, false);
             _isLanding = false;
-            if (!ray.collider.CompareTag("death") && !ray.collider.CompareTag("unsafe"))
-            {
-                _lastSafePos = ray.point;
-            }
+            if (!ray.collider.CompareTag("death") && !ray.collider.CompareTag("unsafe")) _lastSafePos = ray.point;
         }
         else
         {
@@ -147,10 +144,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_levelManager.Dead) return;
         var v = value.Get<Vector2>().normalized;
-        if (_isInverted)
-        {
-            v *= -1;
-        }
+        if (_isInverted) v *= -1;
 
         _animator.SetBool(Move, v.x != 0);
 
@@ -196,9 +190,8 @@ public class PlayerMovement : MonoBehaviour
         if (Time.time - _lastJumpPressTime > jumpBufferTime) return; // if jump buffer expired
         if (_isJumping) return; // already jumping
         if (!_isGrounded)
-        {
-            if (Time.time - _lastGroundedTime > CoyoteTime) return; // if coyote time expired
-        }
+            if (Time.time - _lastGroundedTime > CoyoteTime)
+                return; // if coyote time expired
 
         if (_rb.linearVelocity.y < GroundedLaunchVelocityThreshold) return;
 
@@ -305,5 +298,19 @@ public class PlayerMovement : MonoBehaviour
     {
         var temp = value.Get<Vector2>().normalized;
         if (temp.sqrMagnitude != 0) aim = temp;
+    }
+
+    public void ApplyForce(Vector2 force)
+    {
+        _rb.AddForce(force);
+    }
+
+    public void OnGrenade()
+    {
+        if (Time.time - _lastGrenade > grenadeCooldown)
+        {
+            _lastGrenade = Time.time;
+            _levelManager.ShootProjectile(_levelManager.grenadePrefab, aim);
+        }
     }
 }

@@ -9,13 +9,13 @@ public class BackgroundGenerator : MonoBehaviour
 {
     [SerializeField] private Tilemap backgroundTilemap;
     [SerializeField] private TileBase[] backgroundTiles;
-
-    private int bufferTiles = 5;
+    private readonly HashSet<Vector3Int> _generatedPositions = new();
 
 
     private Camera _camera;
-    private readonly HashSet<Vector3Int> _generatedPositions = new();
     private Vector3Int _lastCameraCell = new(int.MinValue, int.MinValue, 0);
+
+    private int bufferTiles = 5;
 
     private void Start()
     {
@@ -59,18 +59,16 @@ public class BackgroundGenerator : MonoBehaviour
             cameraPos.y + viewHeight + bufferTiles,
             0f));
 
-        for (int x = minCell.x; x <= maxCell.x; x++)
+        for (var x = minCell.x; x <= maxCell.x; x++)
+        for (var y = minCell.y; y <= maxCell.y; y++)
         {
-            for (int y = minCell.y; y <= maxCell.y; y++)
-            {
-                var pos = new Vector3Int(x, y, 0);
-                if (_generatedPositions.Contains(pos))
-                    continue;
+            var pos = new Vector3Int(x, y, 0);
+            if (_generatedPositions.Contains(pos))
+                continue;
 
-                var tile = backgroundTiles[Random.Range(0, backgroundTiles.Length)];
-                backgroundTilemap.SetTile(pos, tile);
-                _generatedPositions.Add(pos);
-            }
+            var tile = backgroundTiles[Random.Range(0, backgroundTiles.Length)];
+            backgroundTilemap.SetTile(pos, tile);
+            _generatedPositions.Add(pos);
         }
     }
 }

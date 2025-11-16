@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 2034846417693451559}
   - component: {fileID: 7775039084161833935}
   - component: {fileID: 4446626013981703420}
-  - component: {fileID: 2069083229357060279}
+  - component: {fileID: 3208257060652900470}
   m_Layer: 3
   m_Name: PrefabPlatform2
   m_TagString: Untagged
@@ -75,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 1583881813278275239}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.22, y: 0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,7 +179,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741824
+      m_AllTileFlags: 0
   - first: {x: 6, y: 7, z: 0}
     second:
       serializedVersion: 2
@@ -189,7 +189,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741824
+      m_AllTileFlags: 0
   m_AnimatedTiles:
   - first: {x: 4, y: 7, z: 0}
     second:
@@ -364,8 +364,8 @@ MonoBehaviour:
   rightPoints:
   - y: 5
     clearance: 16
---- !u!19719996 &2069083229357060279
-TilemapCollider2D:
+--- !u!60 &3208257060652900470
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -399,8 +399,30 @@ TilemapCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 7.236928, y: 8.503979}
+      - {x: 7.511104, y: 8.506753}
+      - {x: 7.518468, y: 9.504107}
+      - {x: 3.463977, y: 9.497001}
+      - {x: 3.4866502, y: 8.501456}
+      - {x: 3.8660667, y: 8.330266}
+      - {x: 4.057284, y: 6.6716986}
+      - {x: 4.8736696, y: 6.684477}
+      - {x: 5.1699824, y: 8.357184}
+      - {x: 5.9867597, y: 8.224048}
+      - {x: 6.0079217, y: 6.7191544}
+      - {x: 6.953028, y: 6.697278}
+      - {x: 7.1441474, y: 8.50304}
   m_UseDelaunayMesh: 0
 --- !u!1 &8812895351504790265
 GameObject:
@@ -448,11 +470,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5189709623732992244, guid: 18c370c0456a23248ac399fb05bf7d11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1388235
+      value: 5.48
       objectReference: {fileID: 0}
     - target: {fileID: 5189709623732992244, guid: 18c370c0456a23248ac399fb05bf7d11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.149486
+      value: 6.58
       objectReference: {fileID: 0}
     - target: {fileID: 5189709623732992244, guid: 18c370c0456a23248ac399fb05bf7d11, type: 3}
       propertyPath: m_LocalPosition.z

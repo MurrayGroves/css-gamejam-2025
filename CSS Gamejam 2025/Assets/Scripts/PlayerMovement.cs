@@ -49,8 +49,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpBufferTime = 0.12f;
 
     private float _lastJumpPressTime = float.NegativeInfinity;
+    private float _lastGroundedTime = float.NegativeInfinity;
 
     private const float GroundedLaunchVelocityThreshold = -0.1f;
+
+    private const float CoyoteTime = 0.1f;
 
 
     private void Awake()
@@ -62,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_isGrounded)
+        {
+            _lastGroundedTime = Time.time;
+        }
+
         // Check if touching ground
         var ray = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, LayerMask.GetMask("Platform"));
         if (ray.collider && !_isJumping)
@@ -162,7 +170,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (!value.isPressed)
         {
-            
             _rb.AddForceY(-_rb.linearVelocity.y * easeIn, ForceMode2D.Impulse);
             return;
         }
@@ -175,8 +182,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void TryConsumeBufferedJump()
     {
-        if (Time.time - _lastJumpPressTime > jumpBufferTime) return;
-        if (_isJumping || !_isGrounded) return;
+        if (Time.time - _lastJumpPressTime > jumpBufferTime) return; // if jump buffer expired
+        if (_isJumping) return; // already jumping
+        if (!_isGrounded)
+        {
+            if (Time.time - _lastGroundedTime > CoyoteTime) return; // if coyote time expired
+        }
+
         if (_rb.linearVelocity.y < GroundedLaunchVelocityThreshold) return;
 
         PerformJump();

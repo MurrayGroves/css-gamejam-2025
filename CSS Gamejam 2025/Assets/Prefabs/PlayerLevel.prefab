@@ -3336,6 +3336,7 @@ MonoBehaviour:
   ceiling: {fileID: 4821058756100316723}
   distanceDisplay: {fileID: 1488168042467097763}
   projectilePrefab: {fileID: 4723920352468873809, guid: 8cf87d35f51a50092a4e09341aefd22d, type: 3}
+  grenadePrefab: {fileID: 4723920352468873809, guid: 70787a3dc3c92b45fa00c159e2439a41, type: 3}
   fireRate: 100
 --- !u!1 &6418018786589596586
 GameObject:

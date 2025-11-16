@@ -13,12 +13,16 @@ public class PlayerLevelManager : MonoBehaviour
     [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
     [SerializeField] public GameObject projectilePrefab;
+    [SerializeField] public GameObject grenadePrefab;
+
 
     [SerializeField] private int fireRate = 10;
 
     private Vector2 _aim;
 
     private float _distanceTravelled;
+
+    private int _fireCounter = 1;
 
     public List<TeleportBoundary> Boundaries;
 
@@ -55,14 +59,21 @@ public class PlayerLevelManager : MonoBehaviour
         deathCollider.transform.position = new Vector2(xPos, deathCollider.transform.position.y);
         ceiling.transform.position = new Vector2(xPos, ceiling.transform.position.y);
 
-        if (Time.frameCount % fireRate == 1) ShootProjectile(projectilePrefab, movementController.aim);
+        if (Time.frameCount % fireRate == 1)
+        {
+            _fireCounter = 1;
+            ShootProjectile(projectilePrefab, movementController.aim);
+        }
+
+        _fireCounter++;
     }
 
-    private void ShootProjectile(GameObject prefab, Vector2 vel)
+    public void ShootProjectile(GameObject prefab, Vector2 vel)
     {
         var obj = Instantiate(prefab);
         obj.transform.position = movementController.transform.position;
         var proj = obj.GetComponent<Projectile>();
+        proj.prefab = prefab;
         proj.InitialRB(vel);
         proj.MarkInitial();
         proj.SetLevelManager(this);

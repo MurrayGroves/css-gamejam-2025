@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3609801141949144428}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 7893008482728449836}
   m_Layer: 0
   m_Name: Dynamic Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,10 @@ MonoBehaviour:
   landingThreshold: 2
   dashSpeed: 10
   dashRechargeSeconds: 1
+  aim: {x: 1, y: 0}
+  landingSound: {fileID: 0}
   jumpBufferTime: 0.12
+  grenadeCooldown: 10
 --- !u!95 &7893008482728449836
 Animator:
   serializedVersion: 7

@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGenerator
   startingPrefab: {fileID: 8812895351504790265, guid: eeabf02240463423ab0de266a509ba56, type: 3}
+  _camera: {fileID: 2417398389046137976}
 --- !u!1 &2744734187642732487
 GameObject:
   m_ObjectHideFlags: 0

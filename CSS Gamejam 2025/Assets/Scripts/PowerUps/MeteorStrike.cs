@@ -8,7 +8,8 @@ namespace PowerUps
         public AudioClip meteorSound;
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            if (other != Player) return;
+            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
+            if (!collidedPlayer) return;
             Debug.Log("Summoning meteor strike!");
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
@@ -20,7 +21,11 @@ namespace PowerUps
 
         public void Strike()
         {
-            Vector3 spawnPos = new Vector3();
+            float screenLeft = 0;
+            float screenRight = 100;
+            float screenTop = -300;
+            float randomX = Random.Range(screenLeft, screenRight);
+            Vector3 spawnPos = new Vector3(randomX, screenTop + 1f, 0);
             GameObject meteor = Instantiate(meteorPrefab, spawnPos, Quaternion.identity);
         }
         public void StopStrike()

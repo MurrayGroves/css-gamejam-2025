@@ -7,7 +7,8 @@ namespace PowerUps
         public AudioClip riftSound;
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            if (other != Player) return;
+            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
+            if (!collidedPlayer) return;
             Debug.Log("Swapping positions");
             sfxPlayer.clip = riftSound;
             sfxPlayer.Play();

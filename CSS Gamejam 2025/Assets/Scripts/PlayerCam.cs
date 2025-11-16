@@ -10,7 +10,7 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] private GameObject player;
 
     public PlayerLevelManager levelManager;
-    private Camera _cam;
+    public Camera _cam;
 
     private void Start()
     {

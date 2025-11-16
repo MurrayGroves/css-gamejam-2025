@@ -34,7 +34,9 @@ namespace Weapons
 
         private static List<TeleportBoundary> yHeadingUp;
 
-        public float projectileSpeed = 5.0f;
+        public float projectileSpeed = 10.0f;
+
+        private Collider2D _collider;
 
         private TeleportBoundary? _currentBoundary;
         private bool _finishedReceiving;
@@ -65,6 +67,7 @@ namespace Weapons
             _rb = GetComponent<Rigidbody2D>();
             _teleported = false;
             _frameCount = 0;
+            _collider = GetComponent<Collider2D>();
         }
 
         private void FixedUpdate()
@@ -81,7 +84,11 @@ namespace Weapons
                     Debug.Log($"xDiff {xDiff}");
                     _rb.position = new Vector2(_rb.position.x - xDiff, _rb.position.y);
                     if (_rb.position.y < _currentBoundary.Value.End)
+                    {
+                        _collider.enabled = true;
                         _finishedReceiving = true;
+                        _currentBoundary = null;
+                    }
                 }
                 else if (_teleported && _finishedSending)
                 {
@@ -133,9 +140,9 @@ namespace Weapons
                     _rb.position = new Vector2(_rb.position.x - xDiff, _rb.position.y);
                     if (_rb.position.y > _currentBoundary.Value.End)
                     {
-                        Debug.Log("Finished receiving");
                         _finishedReceiving = true;
                         _currentBoundary = null;
+                        _collider.enabled = true;
                     }
                 }
                 else if (_teleported && _finishedSending)

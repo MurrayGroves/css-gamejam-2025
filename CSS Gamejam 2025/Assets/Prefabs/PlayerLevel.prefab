@@ -3344,6 +3344,10 @@ MonoBehaviour:
   - {fileID: 1689235630442431510, guid: 743ebd7a761e58548986707566849139, type: 3}
   - {fileID: 1689235630442431510, guid: 18c370c0456a23248ac399fb05bf7d11, type: 3}
   - {fileID: 1689235630442431510, guid: 883eed7fbce15ac4098cdc370f8586ac, type: 3}
+  - {fileID: 343845713286873412, guid: 2ce8eec6f0506393bb71e5eb8b5939d5, type: 3}
+  - {fileID: 7865217831327287049, guid: be38da34e8e47cebfbcf938ebdb6fa68, type: 3}
+  projectilePrefab: {fileID: 4723920352468873809, guid: 8cf87d35f51a50092a4e09341aefd22d, type: 3}
+  fireRate: 100
 --- !u!1 &6418018786589596586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3552,7 +3556,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.302614
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3633,6 +3637,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6659224683994771232}
   m_Enabled: 1
+  levelManager: {fileID: 6166547986944629443}
 --- !u!1 &7150740025750078530
 GameObject:
   m_ObjectHideFlags: 0

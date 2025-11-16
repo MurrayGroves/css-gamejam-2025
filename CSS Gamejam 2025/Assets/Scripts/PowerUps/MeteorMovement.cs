@@ -7,4 +7,12 @@ public class MeteorMovement : MonoBehaviour
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
     }
+
+    protected void OnTriggerEnter2D(Collider2D other)
+    {
+        var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
+        if (!collidedPlayer) return;
+        collidedPlayer.PlayerDeath();
+        Destroy(this);
+    }
 }

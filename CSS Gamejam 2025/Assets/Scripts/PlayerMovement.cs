@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashSpeed = 100.0f;
     [SerializeField] private float dashRechargeSeconds = 1.0f;
+
+    public Vector2 aim = Vector2.right;
     private Animator _animator;
     private float _originalMaxVelocity;
     private float _originalGravity;
@@ -261,5 +263,11 @@ public class PlayerMovement : MonoBehaviour
     public void RevertGravity()
     {
         _rb.gravityScale = _originalGravity;
+    }
+
+    public void OnAim(InputValue value)
+    {
+        var temp = value.Get<Vector2>().normalized;
+        if (temp.sqrMagnitude != 0) aim = temp;
     }
 }

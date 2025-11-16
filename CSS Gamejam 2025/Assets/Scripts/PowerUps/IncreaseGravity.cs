@@ -9,6 +9,8 @@ namespace PowerUps
         private void OnTriggerEnter2D(Collider2D other)
         {
             Player.IncreaseGravity(Gravity);
+            // consume power up
+            Destroy(gameObject);
         }
     }
 }

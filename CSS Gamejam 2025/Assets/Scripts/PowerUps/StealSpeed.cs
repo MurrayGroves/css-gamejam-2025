@@ -18,6 +18,8 @@ namespace PowerUps
                     player.ReduceSpeed(Speed);
                 }
             });
+            // consume power up
+            Destroy(gameObject);
         }
     }
 }

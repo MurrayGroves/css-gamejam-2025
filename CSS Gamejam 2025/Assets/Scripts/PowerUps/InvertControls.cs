@@ -12,6 +12,8 @@ namespace PowerUps
             {
                 player.InvertControls();
             }
+            // consume power up
+            Destroy(gameObject);
         }
     }
 }

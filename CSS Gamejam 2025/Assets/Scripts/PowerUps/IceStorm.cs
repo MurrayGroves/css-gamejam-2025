@@ -10,6 +10,8 @@ namespace PowerUps
         {
             Player.gameManager.allPlayers.ForEach(player => player.IncreaseSpeed(Speed));
             Debug.Log("Ice storm");
+            // consume power up
+            Destroy(gameObject);
         }
     }
 }

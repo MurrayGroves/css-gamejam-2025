@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public List<PlayerLevelManager> allPlayers;
+    public static GameManager Instance;
+    public readonly List<PlayerLevelManager> allPlayers = new();
 
     private void Awake()
     {
-        allPlayers = new();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     public void RegisterPlayerLevelManager(PlayerLevelManager playerLevelManager)

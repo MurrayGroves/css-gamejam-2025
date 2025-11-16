@@ -6,7 +6,8 @@ namespace PowerUps
         public GameObject meteorPrefab;
         public float spawnInterval = 0.5f;
         public AudioClip meteorSound;
-        protected override void OnTriggerEnter2D(Collider2D other)
+        
+        private void OnTriggerEnter2D(Collider2D other)
         {
             var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
             if (!collidedPlayer) return;
@@ -28,6 +29,7 @@ namespace PowerUps
             Vector3 spawnPos = new Vector3(randomX, screenTop + 1f, 0);
             GameObject meteor = Instantiate(meteorPrefab, spawnPos, Quaternion.identity);
         }
+        
         public void StopStrike()
         {
             CancelInvoke(nameof(Strike));

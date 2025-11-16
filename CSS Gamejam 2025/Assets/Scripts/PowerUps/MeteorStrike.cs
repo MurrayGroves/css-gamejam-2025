@@ -8,6 +8,8 @@ namespace PowerUps
         public AudioClip meteorSound;
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other != Player) return;
+            Debug.Log("Summoning meteor strike!");
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
             sfxPlayer.clip = meteorSound;

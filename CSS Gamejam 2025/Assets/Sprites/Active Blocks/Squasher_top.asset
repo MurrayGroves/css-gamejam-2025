@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Squasher_top
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
   m_AnimatedSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -109791583, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -223153976, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 1007653569, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -1965463371, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 1443243786, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -1124254622, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -2030873085, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 1370899801, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 1088597984, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -194738046, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -370786652, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 994903248, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 1088597984, guid: a3326a6540a314140b813bf646f0739a, type: 3}
   m_MinSpeed: 3
   m_MaxSpeed: 3
   m_AnimationStartTime: 0

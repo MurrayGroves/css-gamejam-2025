@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Squasher_bot
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: -6647422861124740118, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 6153881761364550952, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 36689387698157098, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -6740601862587566471, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 3244348698089699513, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -6536912895474246209, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 1149894247, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 942260724, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 300970948, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -1543545014, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: -753898886, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 596333851, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  - {fileID: 1400408580, guid: a3326a6540a314140b813bf646f0739a, type: 3}
+  m_MinSpeed: 3
+  m_MaxSpeed: 3
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

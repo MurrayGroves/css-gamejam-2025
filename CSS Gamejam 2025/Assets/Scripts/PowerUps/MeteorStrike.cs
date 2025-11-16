@@ -12,6 +12,7 @@ namespace PowerUps
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!other.CompareTag("Player")) return;
             if (this.IsDestroyed()) return;
             base.Start();
             if (this.IsDestroyed()) return;

@@ -6,6 +6,7 @@ namespace PowerUps
     {
         protected void OnTriggerEnter2D(Collider2D other)
         {
+            if (!other.CompareTag("Player")) return;
             var collidedPlayer = other.gameObject.GetComponent<PlayerLevelManager>();
             if (collidedPlayer == null) return;
             if (gameManager.allPlayers.Count < 2) return;

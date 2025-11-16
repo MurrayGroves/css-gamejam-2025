@@ -10,7 +10,8 @@ namespace PowerUps
         private void OnTriggerEnter2D(Collider2D other)
         {
             var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
-            if (!collidedPlayer) return;
+            Debug.Log(collidedPlayer);
+            if (collidedPlayer == null) return;
             Debug.Log("Summoning meteor strike!");
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
@@ -22,9 +23,15 @@ namespace PowerUps
 
         public void Strike()
         {
-            float screenLeft = 0;
-            float screenRight = 100;
-            float screenTop = -300;
+            Camera cam = null;
+            foreach(PlayerLevelManager player in gameManager.allPlayers)
+            {
+                if (player == Player) continue;
+                cam = player.GetComponentInChildren<PlayerCam>()._cam;
+            }
+            float screenLeft = cam.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
+            float screenRight = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
+            float screenTop = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y;
             float randomX = Random.Range(screenLeft, screenRight);
             Vector3 spawnPos = new Vector3(randomX, screenTop + 1f, 0);
             GameObject meteor = Instantiate(meteorPrefab, spawnPos, Quaternion.identity);

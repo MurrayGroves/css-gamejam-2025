@@ -8,7 +8,7 @@ namespace PowerUps
         private void OnTriggerEnter2D(Collider2D other)
         {
             var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
-            if (!collidedPlayer) return;
+            if (collidedPlayer == null) return;
             Debug.Log("Swapping positions");
             sfxPlayer.clip = riftSound;
             sfxPlayer.Play();

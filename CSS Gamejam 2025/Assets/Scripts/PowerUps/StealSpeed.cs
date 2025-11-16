@@ -6,14 +6,16 @@ namespace PowerUps
     {
         private const int Speed = 5;
         
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Stealing speed");
-
-            Player.IncreaseSpeed(Speed);
+            Debug.Log("POWER UP: Stealing speed");
+            var collidedPlayer = other.GetComponent<PlayerLevelManager>();
+            collidedPlayer?.IncreaseSpeed(Speed);
+            
+            if (Player.gameManager.allPlayers.Count < 2) return;
             Player.gameManager.allPlayers.ForEach(player =>
             {
-                if (player != Player)
+                if (player != collidedPlayer)
                 {
                     player.ReduceSpeed(Speed);
                 }

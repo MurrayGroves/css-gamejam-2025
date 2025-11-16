@@ -76,9 +76,9 @@ public class PlayerLevelManager : MonoBehaviour
     {
         for (int i = 0; i < 1000; i++)
         {
-            powerUpPrefabs[i % powerUpPrefabs.Count].GetComponent<PowerUp>().SetLevelManager(this);
             int num = Random.Range(-290, -300);
-            Instantiate(powerUpPrefabs[i % powerUpPrefabs.Count], new Vector3(i * 10, num), Quaternion.identity);
+            var instance = Instantiate(powerUpPrefabs[i % powerUpPrefabs.Count], new Vector3(i * 10, num), Quaternion.identity);
+            instance.GetComponent<PowerUp>().SetLevelManager(this);
         }
         
         Debug.Log("Spawned power ups");

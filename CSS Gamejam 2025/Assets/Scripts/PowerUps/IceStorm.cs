@@ -4,12 +4,20 @@ namespace PowerUps
 {
     public class IceStorm : PowerUp
     {
-        private const int Speed = 15;
+        private const int Speed = 20;
         
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
-            Player.gameManager.allPlayers.ForEach(player => player.IncreaseSpeed(Speed));
-            Debug.Log("Ice storm");
+            Debug.Log("POWER UP: Ice storm");
+            var collidedPlayer = other.GetComponent<PlayerLevelManager>();
+            if (Player.gameManager.allPlayers.Count < 2) return;
+            Player.gameManager.allPlayers.ForEach(player =>
+            {
+                if (player != collidedPlayer)
+                {
+                    player.IncreaseSpeed(Speed);
+                }
+            });
             // consume power up
             Destroy(gameObject);
         }

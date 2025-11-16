@@ -1,17 +1,21 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PowerUps
 {
     public class InvertControls : PowerUp
     {
-        public void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
-            if (Player.gameManager.allPlayers.Count <= 0) return;
-            foreach (var player in Player.gameManager.allPlayers.Where(player => player != Player))
+            Debug.Log("POWER UP: Inverted controls");
+            var collidedPlayer = other.GetComponent<PlayerLevelManager>();
+            if (Player.gameManager.allPlayers.Count < 2) return;
+            Player.gameManager.allPlayers.ForEach(player =>
             {
-                player.InvertControls();
-            }
+                if (player != collidedPlayer)
+                {
+                    player.InvertControls();
+                }
+            });
             // consume power up
             Destroy(gameObject);
         }

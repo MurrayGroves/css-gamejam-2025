@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddSpeed(float speed)
     {
         _originalMaxVelocity = maxVel;
-        maxVel *= speed;
+        maxVel += speed;
         Invoke(nameof(ResetSpeed), 5);
     }
 

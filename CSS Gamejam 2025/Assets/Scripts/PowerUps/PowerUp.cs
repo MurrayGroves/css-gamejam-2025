@@ -74,7 +74,10 @@ namespace PowerUps
 
             var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
             var others = gameManager.allPlayers.Where(player => player != collidedPlayer).ToList();
+
+            Notify(collidedPlayer);
             OnPickup(collidedPlayer, others);
+
             // Consume power up
             Destroy(gameObject);
         }
@@ -85,7 +88,7 @@ namespace PowerUps
 
         protected void Notify(PlayerLevelManager player)
         {
-            if (gameManager != null) gameManager.NotifyPowerUpActivated(GetType().Name.Replace(" ", ""), player);
+            gameManager.NotifyPowerUpActivated(GetType().Name.Replace(" ", ""), player);
         }
     }
 }

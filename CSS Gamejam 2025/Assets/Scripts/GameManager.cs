@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -10,25 +11,24 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        if (Instance == null) Instance = this;
     }
 
     public void RegisterPlayerLevelManager(PlayerLevelManager playerLevelManager)
     {
         allPlayers.Add(playerLevelManager);
-        
+
         Debug.Log($"[GameManager] Registered player {allPlayers.Count}: {playerLevelManager.gameObject.name}");
         if (playerLevelManager.powerupDisplay != null)
         {
-            Debug.Log($"[GameManager]   -> PowerUp Display: {playerLevelManager.powerupDisplay.gameObject.name} (InstanceID: {playerLevelManager.powerupDisplay.GetInstanceID()})");
-            Debug.Log($"[GameManager]   -> Display Path: {GetGameObjectPath(playerLevelManager.powerupDisplay.gameObject)}");
+            Debug.Log(
+                $"[GameManager]   -> PowerUp Display: {playerLevelManager.powerupDisplay.gameObject.name} (InstanceID: {playerLevelManager.powerupDisplay.GetInstanceID()})");
+            Debug.Log(
+                $"[GameManager]   -> Display Path: {GetGameObjectPath(playerLevelManager.powerupDisplay.gameObject)}");
         }
         else
         {
-            Debug.LogWarning($"[GameManager]   -> PowerUp Display is NULL!");
+            Debug.LogWarning("[GameManager]   -> PowerUp Display is NULL!");
         }
     }
 
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         var players = allPlayers;
 
-        PlayerLevelManager target = players
+        var target = players
             .FirstOrDefault(plm => plm != null && plm != source);
 
         // Fallback if something weird happens
@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
         var targetSide = target.powerupDisplay;
 
         // Show messages on the correct halves
-        string attackerMsg = $"You used {powerUpName}!";
-        string targetMsg = $"{powerUpName} from other player!";
+        var attackerMsg = $"You used {powerUpName}!";
+        var targetMsg = $"{powerUpName} from other player!";
 
         ShowPowerUpMessage(attackerSide, attackerMsg);
         ShowPowerUpMessage(targetSide, targetMsg);
@@ -66,11 +66,12 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        Debug.Log($"[PowerUpUI] Showing '{message}' on GameObject: {text.gameObject.name} (InstanceID: {text.GetInstanceID()})");
+        Debug.Log(
+            $"[PowerUpUI] Showing '{message}' on GameObject: {text.gameObject.name} (InstanceID: {text.GetInstanceID()})");
         Debug.Log($"[PowerUpUI] Full path: {GetGameObjectPath(text.gameObject)}");
         Debug.Log($"[PowerUpUI] Canvas: {text.canvas?.name ?? "null"}, Active: {text.gameObject.activeSelf}");
-        
-        text.gameObject.SetActive(true);
+
+        text.gameObject.transform.parent.gameObject.SetActive(true);
         text.SetText(message);
         text.color = Color.white;
         text.fontSize = 36;
@@ -83,17 +84,18 @@ public class GameManager : MonoBehaviour
 
     private string GetGameObjectPath(GameObject obj)
     {
-        string path = obj.name;
-        Transform current = obj.transform.parent;
+        var path = obj.name;
+        var current = obj.transform.parent;
         while (current != null)
         {
             path = current.name + "/" + path;
             current = current.parent;
         }
+
         return path;
     }
 
-    private System.Collections.IEnumerator HidePowerUpMessageAfterDelay(TMP_Text text, float delay)
+    private IEnumerator HidePowerUpMessageAfterDelay(TMP_Text text, float delay)
     {
         yield return new WaitForSeconds(delay);
         HidePowerUpMessages(text);
@@ -101,6 +103,6 @@ public class GameManager : MonoBehaviour
 
     private void HidePowerUpMessages(TMP_Text text)
     {
-        text.gameObject.SetActive(false);
+        text.gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

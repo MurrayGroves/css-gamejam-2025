@@ -51,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
     private float _lastJumpPressTime = float.NegativeInfinity;
 
     private Vector2 _lastSafePos;
-    private PlayerLevelManager _levelManager;
     private float _originalGravity;
     private float _originalMaxVelocity;
     private Rigidbody2D _rb;
@@ -60,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     private Vector2 _targetVel;
+    public PlayerLevelManager LevelManager { private set; get; }
 
 
     private void Awake()
@@ -127,8 +127,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Respawn")) _levelManager.PlayerDeathImmediate();
-        if (other.gameObject.CompareTag("death")) _levelManager.PlayerDeath();
+        if (other.gameObject.CompareTag("Respawn")) LevelManager.PlayerDeathImmediate();
+        if (other.gameObject.CompareTag("death")) LevelManager.PlayerDeath();
     }
 
     public float GetXPos()
@@ -138,12 +138,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetLevelManager(PlayerLevelManager levelManager)
     {
-        _levelManager = levelManager;
+        LevelManager = levelManager;
     }
 
     public void OnMove(InputValue value)
     {
-        if (_levelManager.Dead) return;
+        if (LevelManager.Dead) return;
         var v = value.Get<Vector2>().normalized;
         if (_isInverted) v *= -1;
 
@@ -172,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump(InputValue value)
     {
         // Jump
-        if (_levelManager.Dead) return;
+        if (LevelManager.Dead) return;
 
         if (!value.isPressed)
         {
@@ -266,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnDash(InputValue value)
     {
-        if (!(Time.time - _lastDash > dashRechargeSeconds) || _levelManager.Dead) return;
+        if (!(Time.time - _lastDash > dashRechargeSeconds) || LevelManager.Dead) return;
         _lastDash = Time.time;
         _rb.AddForceX(dashSpeed * _direction);
         _animator.SetTrigger(Dash);
@@ -298,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
         if (Time.time - _lastGrenade > grenadeCooldown)
         {
             _lastGrenade = Time.time;
-            _levelManager.ShootProjectile(_levelManager.grenadePrefab, aim);
+            LevelManager.ShootProjectile(LevelManager.grenadePrefab, aim);
         }
     }
 }

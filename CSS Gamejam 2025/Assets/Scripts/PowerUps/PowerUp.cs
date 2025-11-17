@@ -57,13 +57,6 @@ namespace PowerUps
             {
                 Debug.LogWarning($"[PowerUp] Could not find chunk prefab ancestor for {GetType().Name}");
             }
-
-            // if (gameManager.allPlayers.Count < requiredPlayers)
-            // {
-            //     Debug.Log(
-            //         $"[PowerUp] Destroying {GetType().Name} - not enough players ({gameManager.allPlayers.Count}/{requiredPlayers})");
-            //     Destroy(gameObject); // don't spawn power-up if not enough players
-            // }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -72,7 +65,7 @@ namespace PowerUps
             if (gameManager.allPlayers.Count < 2) return;
             Debug.Log("Powerup activated");
 
-            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
+            var collidedPlayer = other.GetComponent<PlayerMovement>().LevelManager;
             var others = gameManager.allPlayers.Where(player => player != collidedPlayer).ToList();
 
             Notify(collidedPlayer);

@@ -3428,6 +3428,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2289667491087530027}
   - component: {fileID: 6166547986944629443}
+  - component: {fileID: 2198149148389406304}
+  - component: {fileID: 9134630550417093768}
+  - component: {fileID: 7631095531071440332}
+  - component: {fileID: 1148290066163399287}
   m_Layer: 0
   m_Name: PlayerLevel
   m_TagString: Untagged
@@ -3468,7 +3472,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLevelManager
   gameManager: {fileID: 0}
-  movementController: {fileID: 5919985433127279934}
   deathCollider: {fileID: 7150740025750078530}
   ceiling: {fileID: 4821058756100316723}
   distanceDisplay: {fileID: 1488168042467097763}
@@ -3476,6 +3479,54 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4723920352468873809, guid: 8cf87d35f51a50092a4e09341aefd22d, type: 3}
   grenadePrefab: {fileID: 4723920352468873809, guid: 70787a3dc3c92b45fa00c159e2439a41, type: 3}
   fireRate: 100
+--- !u!114 &2198149148389406304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255744439881527853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3beccb56b513432a8fbeff7c22f996f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUps.IceStormReceiver
+--- !u!114 &9134630550417093768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255744439881527853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a10008cb254f13b6ec68c21c9e6928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUps.IncreaseGravityReceiver
+--- !u!114 &7631095531071440332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255744439881527853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4d3de4ddfc43e981d9fd18b81f7752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUps.InvertControlsReceiver
+--- !u!114 &1148290066163399287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255744439881527853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a60124583e4549a940faf0e6e323ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUps.StealSpeedReceiver
 --- !u!1 &6418018786589596586
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,17 +10144,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3609801141949144428, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
   m_PrefabInstance: {fileID: 3234818503833345693}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5919985433127279934 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9136784570749879203, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}
-  m_PrefabInstance: {fileID: 3234818503833345693}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6577732978385106853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c382da183487485ab7c438372e6e32dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &6577732978385106853 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8623459807449114936, guid: 8cf7248144e0db6b2979055754731fa0, type: 3}

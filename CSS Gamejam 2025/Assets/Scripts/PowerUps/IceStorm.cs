@@ -1,28 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace PowerUps
 {
     public class IceStorm : PowerUp
     {
-        private const int Speed = 20;
+        [SerializeField] private float multiplier = 5.0f;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnPickup(PlayerLevelManager pickupPlayer, IEnumerable<PlayerLevelManager> otherPlayers)
         {
-            if (!other.CompareTag("Player")) return;
-            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
-            if (gameManager.allPlayers.Count < 2) return;
-            gameManager.allPlayers.ForEach(player =>
-            {
-                if (player != collidedPlayer)
-                {
-                    player.IncreaseSpeed(Speed);
-                    Debug.Log("POWER UP: Ice storm");
-                    Notify(collidedPlayer);
-                    Destroy(gameObject);
-                }
-            });
-            // consume power up
-            Destroy(gameObject);
+            Debug.Log("Ice storm pickup");
+            foreach (var player in otherPlayers) player.GetComponent<IceStormReceiver>().ApplyEffects(multiplier);
         }
     }
 }

@@ -1,30 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PowerUps
 {
     public class StealSpeed : PowerUp
     {
-        private const int Speed = 5;
+        [SerializeField] private float thiefMultiplier = 3.0f;
+        [SerializeField] private float victimMultiplier = 0.5f;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnPickup(PlayerLevelManager pickupPlayer, IEnumerable<PlayerLevelManager> otherPlayers)
         {
-            if (!other.CompareTag("Player")) return;
-            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
-            collidedPlayer?.IncreaseSpeed(Speed);
+            pickupPlayer.GetComponent<StealSpeedReceiver>().ApplyEffects(thiefMultiplier);
 
-            if (gameManager.allPlayers.Count < 2) return;
-            gameManager.allPlayers.ForEach(player =>
-            {
-                if (player != collidedPlayer)
-                {
-                    player.ReduceSpeed(Speed);
-                    Notify(collidedPlayer);
-                    Destroy(gameObject);
-                    Debug.Log("POWER UP: Stealing speed");
-                }
-            });
-            // consume power up
-            Destroy(gameObject);
+            foreach (var player in otherPlayers)
+                player.GetComponent<StealSpeedReceiver>().ApplyEffects(victimMultiplier);
         }
     }
 }

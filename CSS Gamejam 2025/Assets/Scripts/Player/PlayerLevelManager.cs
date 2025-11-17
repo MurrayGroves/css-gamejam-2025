@@ -6,9 +6,8 @@ using Weapons;
 
 public class PlayerLevelManager : MonoBehaviour
 {
+    private static Dictionary<Type, Action<PlayerLevelManager>> _powerupReset = new();
     [HideInInspector] public GameManager gameManager;
-
-    [SerializeField] private PlayerMovement movementController;
     [SerializeField] private GameObject deathCollider;
     [SerializeField] private GameObject ceiling;
     [SerializeField] private TMP_Text distanceDisplay;
@@ -25,32 +24,37 @@ public class PlayerLevelManager : MonoBehaviour
 
     private int _fireCounter = 1;
 
+    private Dictionary<Type, float> _powerupTimers = new();
+
     public List<TeleportBoundary> Boundaries;
+
+    public PlayerMovement MovementController { get; private set; }
 
     public bool Dead { get; private set; }
 
-    public float PosX => movementController.GetXPos();
+    public float PosX => MovementController.GetXPos();
 
-    public void Awake()
+    private void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         gameManager.RegisterPlayerLevelManager(this);
+        MovementController = GetComponentInChildren<PlayerMovement>();
     }
 
-    public void Start()
+    private void Start()
     {
         var grid = GameObject.Find("/Grid");
         gameObject.transform.parent = grid.transform;
         var pos = gameObject.transform.position;
         pos.y = -100.0f * grid.transform.childCount;
         gameObject.transform.position = pos;
-        movementController.SetLevelManager(this);
+        MovementController.SetLevelManager(this);
         //SpawnPowerUps();
     }
 
     private void FixedUpdate()
     {
-        var xPos = movementController.GetXPos();
+        var xPos = MovementController.GetXPos();
         if (xPos > _distanceTravelled)
         {
             _distanceTravelled = xPos;
@@ -63,7 +67,7 @@ public class PlayerLevelManager : MonoBehaviour
         if (Time.frameCount % fireRate == 1)
         {
             _fireCounter = 1;
-            ShootProjectile(projectilePrefab, movementController.aim);
+            ShootProjectile(projectilePrefab, MovementController.aim);
         }
 
         _fireCounter++;
@@ -72,7 +76,7 @@ public class PlayerLevelManager : MonoBehaviour
     public void ShootProjectile(GameObject prefab, Vector2 vel)
     {
         var obj = Instantiate(prefab);
-        obj.transform.position = movementController.transform.position;
+        obj.transform.position = MovementController.transform.position;
         var proj = obj.GetComponent<Projectile>();
         proj.prefab = prefab;
         proj.InitialRB(vel);
@@ -83,59 +87,55 @@ public class PlayerLevelManager : MonoBehaviour
     private void Respawn()
     {
         Dead = false;
-        movementController.Respawn();
+        MovementController.Respawn();
     }
 
     public void PlayerDeath()
     {
         Dead = true;
-        movementController.Death(1.0f, 2.0f);
+        MovementController.Death(1.0f, 2.0f);
         Invoke(nameof(Respawn), 3.0f);
     }
 
-    public void IncreaseSpeed(int speed)
+    public float GetSpeed()
     {
-        movementController.AddSpeed(speed);
-        Debug.Log("Added speed");
+        return MovementController.GetSpeed();
     }
 
-    public void ReduceSpeed(int speed)
+    public void SetSpeed(float speed)
     {
-        movementController.AddSpeed(1.0f / speed);
-        Debug.Log("Reduced speed");
+        MovementController.SetSpeed(speed);
     }
 
     public void Teleport(Vector2 pos)
     {
-        movementController.Teleport(pos);
+        MovementController.Teleport(pos);
     }
 
     public void InvertControls()
     {
-        movementController.InvertControls();
-        Invoke(nameof(RevertControls), 5);
+        MovementController.InvertControls();
     }
 
     public void RevertControls()
     {
-        movementController.RevertControls();
-    }
-
-    public void IncreaseGravity(int gravityMultiplier)
-    {
-        movementController.IncreaseGravity(gravityMultiplier);
-        Invoke(nameof(RevertGravity), 10);
-    }
-
-    public void RevertGravity()
-    {
-        movementController.RevertGravity();
+        MovementController.RevertControls();
     }
 
     public void PlayerDeathImmediate()
     {
         Dead = true;
-        movementController.DeathImmediate(3.0f);
+        MovementController.DeathImmediate(3.0f);
         Invoke(nameof(Respawn), 3.0f);
+    }
+
+    public void SetFriction(float friction)
+    {
+        MovementController.GetComponent<Rigidbody2D>().sharedMaterial.friction = friction;
+    }
+
+    public float GetFriction()
+    {
+        return MovementController.GetComponent<Rigidbody2D>().sharedMaterial.friction;
     }
 }

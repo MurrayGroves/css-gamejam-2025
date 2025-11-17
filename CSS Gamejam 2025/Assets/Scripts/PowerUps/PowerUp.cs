@@ -1,14 +1,17 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace PowerUps
 {
     public abstract class PowerUp : MonoBehaviour
     {
         public AudioSource sfxPlayer;
-        protected GameManager gameManager;
 
         public readonly int requiredPlayers = 2;
+
+        protected GameManager gameManager;
 
         private void Awake()
         {
@@ -19,18 +22,16 @@ namespace PowerUps
         public void Start()
         {
             // Check if it's a child of a tilemap or grid
-            var tilemapParent = GetComponentInParent<UnityEngine.Tilemaps.Tilemap>();
-            
+            var tilemapParent = GetComponentInParent<Tilemap>();
+
             if (tilemapParent != null)
-            {
                 Debug.Log($"  Parent Tilemap: {tilemapParent.name} at position {tilemapParent.transform.position}");
-            }
 
 
             // Only spawn power-ups in chunks that are far enough into the game
             // Find the actual chunk prefab (ChunkPrefabPlatform1, ChunkPrefabPlatform3, etc.)
             Transform chunkTransform = null;
-            Transform current = transform;
+            var current = transform;
             while (current != null)
             {
                 if (current.name.Contains("Chunk") && current.name.Contains("Prefab"))
@@ -38,6 +39,7 @@ namespace PowerUps
                     chunkTransform = current;
                     break;
                 }
+
                 current = current.parent;
             }
 
@@ -46,16 +48,16 @@ namespace PowerUps
                 Debug.Log($"[PowerUp] Found chunk: {chunkTransform.name} at position {chunkTransform.position}");
                 if (chunkTransform.position.x < 30)
                 {
-                    Debug.Log($"[PowerUp] Destroying {GetType().Name} - Chunk {chunkTransform.name} X position {chunkTransform.position.x} < 30");
+                    Debug.Log(
+                        $"[PowerUp] Destroying {GetType().Name} - Chunk {chunkTransform.name} X position {chunkTransform.position.x} < 30");
                     Destroy(gameObject);
-                    return;
                 }
             }
             else
             {
                 Debug.LogWarning($"[PowerUp] Could not find chunk prefab ancestor for {GetType().Name}");
             }
-            
+
             // if (gameManager.allPlayers.Count < requiredPlayers)
             // {
             //     Debug.Log(
@@ -64,12 +66,26 @@ namespace PowerUps
             // }
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return;
+            if (gameManager.allPlayers.Count < 2) return;
+            Debug.Log("Powerup activated");
+
+            var collidedPlayer = other.GetComponentInParent<PlayerLevelManager>();
+            var others = gameManager.allPlayers.Where(player => player != collidedPlayer).ToList();
+            OnPickup(collidedPlayer, others);
+            // Consume power up
+            Destroy(gameObject);
+        }
+
+
+        protected abstract void OnPickup(PlayerLevelManager pickupPlayer, IEnumerable<PlayerLevelManager> otherPlayers);
+
+
         protected void Notify(PlayerLevelManager player)
         {
-            if (gameManager != null)
-            {
-                gameManager.NotifyPowerUpActivated(GetType().Name.Replace(" ", ""), player);
-            }
+            if (gameManager != null) gameManager.NotifyPowerUpActivated(GetType().Name.Replace(" ", ""), player);
         }
     }
 }

@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _sfx = GameObject.FindWithTag("SFX").GetComponent<AudioSource>();
         _rb = GetComponent<Rigidbody2D>();
+        _rb.sharedMaterial = Instantiate(_rb.sharedMaterial);
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
@@ -214,16 +215,14 @@ public class PlayerMovement : MonoBehaviour
         _isJumping = false;
     }
 
-    public void AddSpeed(float speed)
+    public float GetSpeed()
     {
-        _originalMaxVelocity = maxVel;
-        maxVel += speed;
-        Invoke(nameof(ResetSpeed), 5);
+        return maxVel;
     }
 
-    private void ResetSpeed()
+    public void SetSpeed(float speed)
     {
-        maxVel = _originalMaxVelocity;
+        maxVel = speed;
     }
 
     public void Respawn()
@@ -281,17 +280,6 @@ public class PlayerMovement : MonoBehaviour
     public void RevertControls()
     {
         _isInverted = false;
-    }
-
-    public void IncreaseGravity(int gravityMultiplier)
-    {
-        _originalGravity = _rb.gravityScale;
-        _rb.gravityScale *= gravityMultiplier;
-    }
-
-    public void RevertGravity()
-    {
-        _rb.gravityScale = _originalGravity;
     }
 
     public void OnAim(InputValue value)

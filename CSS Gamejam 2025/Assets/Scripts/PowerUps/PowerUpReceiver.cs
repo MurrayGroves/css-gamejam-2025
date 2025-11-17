@@ -21,6 +21,7 @@ namespace PowerUps
                 StopCoroutine(_timer);
             }
 
+            _waitingSince = Time.time;
             _timer = StartCoroutine(Timer(duration));
 
             return active;
@@ -30,6 +31,7 @@ namespace PowerUps
         {
             yield return new WaitForSeconds(duration);
             ResetEffects();
+            _timer = null;
         }
 
         protected abstract void ResetEffects();
